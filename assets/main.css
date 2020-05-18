@@ -16,7 +16,7 @@ header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
 .content {max-width: 800px; margin: 0 auto; padding: 20px;}
 
 .pods {}
-.pods h1, .pods p {margin-right: 10px; margin-left: 10px;}
+.pods h3, .pods p {margin-right: 10px; margin-left: 10px;}
 .pod1 {background: yellow; }
 .pod2 {background: yellow; }
 .pod3 {background: yellow; }
