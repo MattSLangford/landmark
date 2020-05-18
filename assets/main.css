@@ -17,9 +17,7 @@ header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
 
 .pods {}
 .pods h3, .pods p {margin-right: 10px; margin-left: 10px;}
-.pod1 {background: yellow; }
-.pod2 {background: yellow; }
-.pod3 {background: yellow; }
+.pod {background: yellow; max-width: 350px; margin:0 10px;}
 
 footer {margin: 0 auto; text-align: center; font-size: 16px; padding: 50px 20px; background: #1f343f; color: #fff;}
 footer ul {list-style-type: none; text-align: center; padding: 0; margin: 0;}
