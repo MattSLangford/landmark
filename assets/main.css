@@ -19,7 +19,7 @@ header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
 .pods h3, .pods p {margin-right: 10px; margin-left: 10px;}
 .pod {background: #d3d3d3; max-width: 350px; margin:10px; float: left;}
 
-button {padding: 10px 30px; border: 1px solid #fff; background: #1f343f; border-radius: 10px;}
+button {padding: 10px 30px; border: none; background: #1f343f; border-radius: 10px; font-size: 0.7em; margin-top:10px;}
 button a {text-decoration: none; color: white;}
 
 footer {clear: both; margin: 0 auto; text-align: center; font-size: 16px; padding: 50px 20px; background: #1f343f; color: #fff;}
