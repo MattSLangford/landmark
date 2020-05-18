@@ -23,8 +23,9 @@ header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
   .pod {width: 100%; flex: none;}
 }
 
-button {padding: 10px 30px; border: none; background: #1f343f; border-radius: 10px; font-size: 0.7em; margin-top:10px;}
+button {padding: 10px 30px; border: none; background: #1f343f; border-radius: 10px; font-size: 0.7em; margin-top:10px; color:white;}
 a.button {text-decoration: none; color: white;}
+button:hover {opacity: 0.8;}
 
 footer {clear: both; margin: 0 auto; text-align: center; font-size: 16px; padding: 50px 20px; background: #1f343f; color: #fff;}
 footer ul {list-style-type: none; text-align: center; padding: 0; margin: 0;}
