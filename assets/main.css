@@ -15,6 +15,6 @@ header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
 
 .content {max-width: 800px; margin: 0 auto; padding: 20px;}
 
-footer {max-width: 800px; margin: 0 auto; text-align: center; border-top: solid 1px #bdbdbd; font-size: 16px; padding: 50px 20px;}
+footer {margin: 0 auto; text-align: center; font-size: 16px; padding: 50px 20px; background: #1f343f; color: #fff;}
 footer ul {list-style-type: none; text-align: center; padding: 0; margin: 0;}
-footer a {color: black;}
+footer a {color: #fff;}
