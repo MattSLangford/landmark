@@ -16,12 +16,11 @@ header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
 .content {max-width: 800px; margin: 0 auto; padding: 20px;}
 
 .pods {display: flex;}
-.pod {background: rgba(210, 210, 210, 0.33); border-radius: 10px; padding: 0px 20px; flex: 50%;}
+.pod {background: rgba(210, 210, 210, 0.33); border-radius: 10px; padding: 15px; flex: 50%; margin: 10px 5px;}
 
 @media screen and (max-width: 600px) {
-  .pod {
-    width: 100%;
-  }
+  .pods {display: inline;}
+  .pod {width: 100%; flex: none;}
 }
 
 button {padding: 10px 30px; border: none; background: #1f343f; border-radius: 10px; font-size: 0.7em; margin-top:10px;}
