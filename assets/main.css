@@ -2,9 +2,6 @@ body {font-family: -apple-system,BlinkMacSystemFont,sans-serif; font-size: 20px;
 
 .container {}
 
-a, a:visited {color: #1f343f; text-decoration: none; border-bottom: 1px solid #d3d3d3;}
-a:hover {border-bottom: none;}
-
 header {max-width: 800px; margin: 0 auto;}
 header .logo {max-width: 800px; padding: 0 20px; margin: 50px 0 20px 0; text-align: center;}
 header .logo img {max-width: 300px;}
@@ -19,6 +16,8 @@ header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
 
 .content {max-width: 800px; margin: 0 auto; padding: 20px;}
 .content .update {background: lightyellow; border-radius: 10px; border: 1px solid lightgrey; padding: 10px; margin-bottom: 40px;}
+.content a, .content a:visited {color: #1f343f; text-decoration: none; border-bottom: 2px solid #d3d3d3;}
+.content a:hover {border-bottom: none;}
 
 blockquote {border-left: 3px solid #1f343f; padding-left: 20px; font-size: 0.9em;}
 
