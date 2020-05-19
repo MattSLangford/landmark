@@ -17,7 +17,7 @@ header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
 .hero h2 {text-align: center; margin: 50px auto; font-size: 2.2em; line-height: 1.5em; max-width: 1200px;}
 
 .content {max-width: 800px; margin: 0 auto; padding: 20px;}
-.content .update {background: lightyellow; border-radius: 10px; border: 1px solid lightgrey; padding: 10px; margin-bottom: 40px;}
+.content .update {background: lightyellow; border-radius: 10px; border: 1px solid lightgrey; padding: 20px; margin-bottom: 40px;}
 .content a, .content a:visited {color: #1f343f; text-decoration: none; border-bottom: 2px solid #d3d3d3;}
 .content a:hover {border-bottom: none;}
 
