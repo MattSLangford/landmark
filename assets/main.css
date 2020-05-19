@@ -24,6 +24,7 @@ header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
   .pods, .footer-pods {display: inline;}
   .pod, .footer-pod {flex: none;}
   .footer-pod ul {text-align: center;}
+  .hero h2 {padding: 20px; margin: 0 auto; font-size: 0.8em; line-height: 2em;}
 }
 
 button {padding: 10px 30px; border: none; background: #1f343f; border-radius: 10px; font-size: 0.7em; margin-top:10px; color:white;}
