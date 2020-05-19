@@ -17,6 +17,8 @@ header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
 .content {max-width: 800px; margin: 0 auto; padding: 20px;}
 .content .update {background: lightyellow; border-radius: 10px; border: 1px solid lightgrey; padding: 10px; margin-bottom: 40px;}
 
+blockquote {border: 3px solid #1f343f; padding-left: 20px; font-size: 0.9em;}
+
 .pods, .footer-pods {display: flex; flex-wrap: wrap; justify-content: center; }
 .pod {background: rgba(210, 210, 210, 0.33); border-radius: 10px; padding: 15px; flex: 25%; margin: 10px 5px;}
 .footer-pod {flex: 30%; margin: 0 10px;}
