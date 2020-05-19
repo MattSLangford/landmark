@@ -30,6 +30,6 @@ a.button {text-decoration: none; color: white;}
 button:hover {opacity: 0.8;}
 
 footer {clear: both; margin: 0 auto; font-size: 16px; padding: 50px 20px; background: #1f343f; color: #fff;}
-footer .footer-container {max-width: 1000px;}
+footer .footer-container {max-width: 1000px; margin: 0 auto;}
 footer ul {list-style-type: none; padding: 0; margin: 0;}
 footer a {color: #fff;}
