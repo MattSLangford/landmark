@@ -2,6 +2,8 @@ body {font-family: -apple-system,BlinkMacSystemFont,sans-serif; font-size: 20px;
 
 .container {}
 
+h1, h2, h3, h4, h5, h6 {color: #1f343f;}
+
 header {max-width: 800px; margin: 0 auto;}
 header .logo {max-width: 800px; padding: 0 20px; margin: 50px 0 20px 0; text-align: center;}
 header .logo img {max-width: 300px;}
