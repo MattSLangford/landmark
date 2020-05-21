@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Landmark Church in Lafayette, Louisiana | Celebrate Recovery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Landmark Church Celebrate Recovery">
+<meta property="og:description" content="Landmark Church Celebrate Recovery">
+<meta property="og:url" content="https://landmarklafayette.com/celebrate-recovery.html">
+<meta property="og:site_name" content="Landmark Church">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Landmark Church Celebrate Recovery">
+<meta name="twitter:title" content="Landmark">
+<link rel="stylesheet" href="/assets/main.css" type="text/css" media="all">
+<script src="https://js.churchcenter.com/modal/v1"></script>
+<script src="https://kit.fontawesome.com/d60d846456.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+	<header>
+		<div class="logo">
+			<a href="index.html"><img src="/assets/standard.svg" alt="Landmark Church Logo"></a>
+		</div>
+		<div class="navigation">
+			<ul>
+				<li><a href="information.html">Information</a></li>
+				<li><a href="connect.html">Connect</a></li>
+				<li><a href="https://landmarkchurch.churchcenter.com/registrations">Events</a></li>
+				<li><a href="watch-live.html">Watch Live</a></li>
+				<li><a href="https://landmarkchurch.churchcenter.com/giving/" data-open-in-church-center-modal="true">Donate</a></li>
+				<li><a href="contact.html">Contact Us</a></li>
+			</ul>
+		</div>
+	</header>
+	<div class="hero">
+		<img src="/assets/hope.jpg" alt="Landmark Church Welcome">
+	</div>
+	<div class="content">
+    <h2>Celebrate Recovery at Landmark Church</h2>
+		<p>Do you have hurts, habits or hang-ups? The real question is…who doesn’t?</p>
+    <p>Our struggles occur when we try to fill the voids and meet the needs in our lives by some means other than God. Some of us eat too much, spend too much, have sexual addictions, gamble, escape to the computer, obsess about work, drink too much or take drugs to numb our pain and try to face life’s realities.</p>
+    <p>No matter what your hurts, habits, or hangups are…there is hope. At Celebrate Recovery you will find many men and women with struggles similar to your own. We provide a safe gathering place where you are not judged, where your confidentiality is assured, and where you will be loved in spite of your issues.</p>
+    <p>Celebrate RecoveChrist-centered, Christ-centered recovery ministry for everyone 18 and older. Together we find hope and healing in the power of Jesus Christ.</p>
+    <p>We meet every Thursday night at 6:00. Our meeting starts at 6:30. We offer free childcare for kids through age 10 (meal provided).</p>
+    <p>Let your recovery begin…</p>
+  </div>
+<footer>
+	<div class="footer-container">
+	<div class="footer-pods">
+		<div class="footer-pod">
+		<ul>
+			<li><strong>Phys:</strong> 1610 W Willow St, Lafayette, LA 70596</li>
+			<li><strong>Mail:</strong> PO Box 62833, Lafayette, LA 70583</li>
+			<li>337-232-3974</li>
+			<li><a href="mailto:info@landmark418.com">info@landmark418.com</a></li>
+		</ul>
+		</div>
+		<div class="footer-pod" style="text-align: right; display: inline;">
+		<ul>
+			<li><a href="https://twitter.com/landmarkchurch"><i class="fab fa-twitter"></i></li></a>
+			<li><a href="https://facebook.com/landmarklafayette"><i class="fab fa-facebook"></i></li></a>
+			<li><a href="https://instagram.com/landmarkchurch"><i class="fab fa-instagram"></i></li></a>
+			<li><a href="https://vimeo.com/landmarkchurch"><i class="fab fa-vimeo-v"></i></li></a>
+		</ul>
+		</div>
+	</div>
+	</div>
+</footer>
+</div>
+</body>
+</html>
