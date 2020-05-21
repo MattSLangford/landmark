@@ -42,6 +42,8 @@ button {padding: 10px 30px; border: none; background: #1f343f; border-radius: 10
 a.button, a.button:visited {text-decoration: none; color: white; border:none;}
 button:hover {opacity: 0.8;}
 
+iframe {max-width:100%;}
+
 footer {clear: both; margin: 0 auto; font-size: 16px; padding: 50px 20px; background: #1f343f; color: #fff;}
 footer .footer-container {max-width: 1000px; margin: 0 auto;}
 footer ul {list-style-type: none; padding: 0; margin: 0;}
