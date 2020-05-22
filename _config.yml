@@ -1,4 +1,4 @@
 ---
 title: Landmark Church
 timezone: UTC
-includes: ["_redirects"]
+include: ["_redirects"]
