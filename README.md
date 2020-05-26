@@ -1,6 +1,6 @@
 # Landmark Church in Lafayette, Louisiana
 
-A barebones Jekyll/Netlify site for Landmark Church in Lafayette, LA. A small and ongoing project with no branches or collaborators. 
+A barebones Jekyll/Netlify site for Landmark Church in Lafayette, LA. A small and ongoing project with no branches or collaborators. All media (mostly photos) is also hosted right here.
 
 Find them on Twitter - [@LandmarkChurch](https://twitter.com/landmarkchurch).
 
