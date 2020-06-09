@@ -38,7 +38,7 @@ blockquote {border-left: 3px solid #1f343f; padding-left: 20px; font-size: 0.9em
   .hero h2 {padding: 20px; margin: 0 auto; font-size: 0.8em; line-height: 2em;}
   .alert {border-radius: 0;}
   .alert {margin-top: 0;}
-  .hero img {oject-fit: cover; height: 300px;}
+  .hero img {object-fit: cover; height: 300px;}
 }
 
 button {padding: 10px 30px; border: none; background: #1f343f; border-radius: 10px; font-size: 0.7em; margin-top:10px; color:white;}
