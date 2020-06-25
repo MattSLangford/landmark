@@ -35,6 +35,7 @@ blockquote {border-left: 3px solid #1f343f; padding-left: 20px; font-size: 0.9em
   .pods, .footer-pods {display: inline;}
   .pod, .footer-pod {flex: none;}
   .footer-pod ul {text-align: center;}
+  .alert {width: 95%;}
   .hero h2 {padding: 20px; margin: 0 auto; font-size: 0.8em; line-height: 2em;}
   .hero img {object-fit: cover; height: 300px;}
 }
