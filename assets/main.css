@@ -41,7 +41,7 @@ blockquote {border-left: 3px solid #1f343f; padding-left: 20px; font-size: 0.9em
 }
 
 button {padding: 10px 30px; border: none; background: #1f343f; border-radius: 10px; font-size: 0.7em; margin-top:10px; color:white;}
-a.button, a.button:visited {text-decoration: none; color: white; border:none;}
+a.button, a.button:visited {text-decoration: none; color: white; border:none !important;}
 button:hover {opacity: 0.8;}
 button.big {padding: 20px 30px; font-size: 1.2em; display: block; margin: 20px auto;}
 
