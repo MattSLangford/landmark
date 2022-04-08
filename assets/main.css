@@ -15,7 +15,7 @@ header .logo {max-width: 800px; padding: 0 20px; margin: 50px 0 20px 0; text-ali
 header .logo img {max-width: 300px;}
 
 header ul {text-align: center; padding: 0; margin: 0;}
-header ul li {display: inline-block; padding: 10px;}
+header ul li {display: inline-block; padding: 12px;}
 header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
 
 .hero {max-width: 1400px; margin: 0 auto; margin-top: 30px;}
@@ -38,7 +38,7 @@ blockquote {border-left: 3px solid #1f343f; padding-left: 20px; font-size: 0.9em
   .pod, .footer-pod {flex: none;}
   .footer-pod ul {text-align: center;}
   .alert {width: 95%;}
-  .hero h2 {padding: 20px; margin: 0 auto; font-size: 1.2em; line-height: 2em;}
+  .hero h2 {padding: 20px; margin: 0 auto; font-size: 2em; line-height: 1.2em;}
   .hero img {object-fit: cover; height: 300px;}
 }
 
