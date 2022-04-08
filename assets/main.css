@@ -15,7 +15,7 @@ header .logo {max-width: 800px; padding: 0 20px; margin: 50px 0 20px 0; text-ali
 header .logo img {max-width: 300px;}
 
 header ul {text-align: center; padding: 0; margin: 0;}
-header ul li {display: inline-block; padding: 12px;}
+header ul li {display: inline-block; padding: 12px; border: none;}
 header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
 
 .icon {display: none;}
