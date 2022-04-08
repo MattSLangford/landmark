@@ -29,10 +29,11 @@
 /design						https://mattlangford.com
 /design/					https://mattlangford.com
 /covid.html					/index.html
-/contactus					/contact
-/contact-us					/contact
-/email						/contact
-/phone						/contact
+/contactus					/more.html
+/contact-us					/more.html
+/email						/more.html
+/phone						/more.html
+/contact.html				/more.html
 /pco						https://people.planningcenteronline.com
 /planningcenter				https://people.planningcenteronline.com
 /pc							https://people.planningcenteronline.com
