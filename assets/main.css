@@ -44,6 +44,8 @@ blockquote {border-left: 3px solid #1f343f; padding-left: 20px; font-size: 0.9em
   .hero img {object-fit: cover; height: 300px;}
   .icon {display: inline;}
   .navigation #myLinks {display: none;}
+  .navigation {text-align: center;}
+  .navigation a {color: #1f343f;}
 }
 
 button {padding: 10px 30px; border: none; background: #1f343f; border-radius: 10px; font-size: 0.7em; margin-top:10px; color:white;}
