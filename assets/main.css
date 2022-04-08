@@ -45,7 +45,7 @@ blockquote {border-left: 3px solid #1f343f; padding-left: 20px; font-size: 0.9em
   .icon {display: inline;}
   .navigation #myLinks {display: none;}
   .navigation {text-align: center;}
-  .navigation a {color: #1f343f;}
+  .navigation a {color: #1f343f; text-decoration: none;}
 }
 
 button {padding: 10px 30px; border: none; background: #1f343f; border-radius: 10px; font-size: 0.7em; margin-top:10px; color:white;}
