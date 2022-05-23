@@ -35,6 +35,8 @@ blockquote {border-left: 3px solid #1f343f; padding-left: 20px; font-size: 0.9em
 .pod {background: rgba(210, 210, 210, 0.33); border-radius: 10px; padding: 15px; flex: 25%; margin: 10px 5px;}
 .footer-pod {flex: 30%; margin: 0 10px;}
 
+hr {border: 1px solid #1f343f; width: 80%; margin: 60px auto;}
+
 @media screen and (max-width: 600px) {
   .pods, .footer-pods {display: inline;}
   .pod, .footer-pod {flex: none;}
