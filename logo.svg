@@ -1,15 +1,7 @@
-<svg version="1.2" baseProfile="tiny-ps" width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-<title>Landmark Church</title>
-<rect width="400" height="400" fill="#F5F5F5"/>
-<rect width="400" height="400" fill="#1F343F"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M188.398 271.362V129.688L162.713 104.073V296.977L188.398 271.362Z" fill="#F0A830"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M193.775 124.29H226.738C226.738 110.144 215.239 98.6785 201.054 98.6785H168.09L193.775 124.29Z" fill="#F0A830"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M146.247 98.6785H113.964C99.7792 98.6785 88.2796 110.144 88.2796 124.29H120.562L146.247 98.6785Z" fill="#F0A830"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M200.901 87.5819H113.964C99.7792 87.5819 88.2796 76.1165 88.2796 61.9699H226.586C226.586 76.1165 215.086 87.5819 200.901 87.5819Z" fill="#F0A830"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M151.589 296.944V104.105L125.904 129.72V271.33L151.589 296.944Z" fill="#F0A830"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M120.512 276.71H88.2796C88.2796 290.853 99.7792 302.322 113.964 302.322H146.197L120.512 276.71Z" fill="#F0A830"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M244.381 276.71H193.825L168.14 302.322H270.066L244.381 276.71Z" fill="#F0A830"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M275.419 296.904V258.275C275.419 244.128 263.917 232.66 249.732 232.66V271.289L275.419 296.904Z" fill="#F0A830"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M281.19 313.418H113.964C99.7792 313.418 88.2796 324.884 88.2796 339.03H306.874L281.19 313.418Z" fill="#F0A830"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M312.075 333.46V232.66C297.89 232.66 286.391 244.128 286.391 258.275V307.845L312.075 333.46Z" fill="#F0A830"/>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg version="1.2" baseProfile="tiny-ps" width="400" height="400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Landmark Church</title>
+  <path fill="#F5F5F5" d="M0 0h400v400H0z"/>
+  <path fill="#1F343F" d="M0 0h400v400H0z"/>
+  <path fill-rule="evenodd" d="M188.398 271.362V129.688l-25.685-25.615v192.904l25.685-25.615zm5.377-147.072h32.963c0-14.146-11.499-25.612-25.684-25.612H168.09l25.685 25.612zm-47.528-25.612h-32.283c-14.185 0-25.684 11.466-25.684 25.612h32.282l25.685-25.612zm54.654-11.096h-86.937c-14.185 0-25.684-11.465-25.684-25.612h138.306c0 14.147-11.5 25.612-25.685 25.612zm-49.312 209.362V104.105l-25.685 25.615v141.61l25.685 25.614zm-31.077-20.234H88.28c0 14.143 11.5 25.612 25.684 25.612h32.233l-25.685-25.612zm123.869 0h-50.556l-25.685 25.612h101.926l-25.685-25.612zm31.038 20.194v-38.629c0-14.147-11.502-25.615-25.687-25.615v38.629l25.687 25.615zm5.771 16.514H113.964c-14.185 0-25.684 11.466-25.684 25.612h218.594l-25.684-25.612zm30.885 20.042v-100.8c-14.185 0-25.684 11.468-25.684 25.615v49.57l25.684 25.615z" fill="#F0A830"/>
 </svg>
