@@ -1,12 +1,11 @@
 body {font-family: -apple-system,BlinkMacSystemFont,sans-serif; font-size: 20px; line-height: 1.5em; padding: 0; margin: 0; background-color: #fafafa;}
 
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+
+}
+
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 10px 10px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    ". . ."
-    ". . .";
+
 }
