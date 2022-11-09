@@ -9,3 +9,12 @@ body {font-family: -apple-system,BlinkMacSystemFont,sans-serif; font-size: 20px;
 .container {
 
 }
+
+.footer-container {
+  color: gray;
+  font-size: .8em;
+}
+
+.footer-container ul {
+  list-style-type: none;
+}
