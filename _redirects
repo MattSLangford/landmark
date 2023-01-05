@@ -3,8 +3,8 @@
 /app/                       https://churchcenter.com/install
 /app                        https://churchcenter.com/install
 /apply                      https://landmarkchurch.churchcenter.com/people/forms/5847
-/media                      https://landmarkchurch.churchcenter.com/people/forms/134828
-/media/                     https://landmarkchurch.churchcenter.com/people/forms/134828
+/media                      /media.html
+/media/                     /media.html
 /live                       /watch-live.html
 /live/                      /watch-live.html
 /livestream					/watch-live.html
