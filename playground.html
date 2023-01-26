@@ -5,34 +5,4 @@ image: /assets/live.jpg
 ---
 {% include header.html %}
     <div id="feed"></div>
-    <script>
-      // Fetch the RSS feed
-      fetch('https://trakt.tv/users/pratiktv/progress/watched.atom?slurm=e9bace2e5a9a594b5266119947cc6453')
-        .then(response => response.text())
-        .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-        .then(data => {
-          // Get the items from the RSS feed
-          const items = data.querySelectorAll("item");
-
-          // Create a container for the items
-          const container = document.getElementById("feed");
-
-          // Loop through the items and create HTML elements for each one
-          items.forEach(item => {
-            const title = item.querySelector("title").textContent;
-            const link = item.querySelector("link").textContent;
-            const description = item.querySelector("description").textContent;
-            const pubDate = item.querySelector("pubDate").textContent;
-
-            const itemElement = document.createElement("div");
-            itemElement.innerHTML = `
-              <h2><a href="${link}">${title}</a></h2>
-              <p>${description}</p>
-              <p>Published on: ${pubDate}</p>
-            `;
-
-            container.appendChild(itemElement);
-          });
-        });
-    </script>
 {% include footer.html %}
