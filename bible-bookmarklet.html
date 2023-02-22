@@ -5,8 +5,8 @@ image: /assets/contact.jpg
 ---
 {% include header.html %}
 	<div class="content">
-		<p>This is a bookmarklet created to extra the Bible Reference, Translation, and Bible Verses from a BibleGateway.com page.</p>
-		<p>Drag the following link to your bookmarks bar on your desktop browser,</p>
+		<p>This is a bookmarklet created to extract the Bible Reference, the Translation, and all Bible Verses from a given BibleGateway.com page.</p>
+		<p>Drag the following link to your bookmarks bar on your desktop browser:</p>
 		<a style="background: lightgray; color: black; border: 1px solid black; border-radius: 5px; padding: 5px 10px;" href="javascript:(function() {
   const reference = document.querySelector('.bcv .dropdown-display-text').textContent.trim();
   const translation = document.querySelector('.translation .dropdown-display-text').textContent.trim();
@@ -19,5 +19,6 @@ image: /assets/contact.jpg
   navigator.clipboard.writeText(textToCopy).then(() => alert('Bible reference and verses have been copied to the clipboard!'));
 })();
 ">Copy Bible</a>
+		<p>Created by <a href="https://mattlangford.com">Matt Langford</a> and ChatGPT.</p>
 	</div>
 {% include footer.html %}
