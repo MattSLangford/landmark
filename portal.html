@@ -6,10 +6,59 @@
 			ul, ul li { list-style: none; margin: 0; padding: 0; line-height: 1.5em;}
 			h3 {margin-bottom: 0; padding-bottom: 0; text-transform: uppercase;}
 			img { width: 250px; margin: 2em 0; max-width: 80%;}
+			.flex-container {
+			  display: flex;
+			  flex-direction: row;
+			  flex-wrap: nowrap;
+			  justify-content: center;
+			  align-items: stretch;
+			  align-content: stretch;
+			}
+
+			.flex-items:nth-child(1) {
+			  display: block;
+			  flex-grow: 0;
+			  flex-shrink: 1;
+			  flex-basis: auto;
+			  align-self: auto;
+			  order: 0;
+			  margin: 20px;
+			}
+
+			.flex-items:nth-child(2) {
+			  display: block;
+			  flex-grow: 0;
+			  flex-shrink: 1;
+			  flex-basis: auto;
+			  align-self: auto;
+			  order: 0;
+			  margin: 20px;
+			}
+			footer {
+				font-size: 0.8em;
+				background: lightgrey;
+				padding: 10px;
+				border-radius: 5px;
+				margin: 35px auto;
+				max-width: 500px;
+			}
+			.main_links {
+				margin: 20px;
+			}
+			@media (max-width: 525px) {
+			  .flex-container {
+				flex-direction: column;
+			  }
+			}
 		</style>
 	</head>
 <body>
 	<img src="/assets/standard.svg" >
+	<div class=="main_links">
+		<p><a href="https://mail.landmarklafayette.com">✉️</a> <a href="https://drive.landmarklafayette.com">🗄</a> <a href="https://calendar.google.com">📆</a></p>
+	</div>
+	<div class="flex-container">
+		<div class="flex-items">
 	<h3>Important Links</h3>
 	<ul>
 		<li><a href="https://landmarklafayette.com">Landmark Church</a></li>
@@ -19,13 +68,10 @@
 		<li><a href="https://drive.google.com/drive/folders/1E0U1r7kuPSy5fjfLljK71Aj1VM6Jxk9A">All Handouts</a></li>
 		<li><a href="https://landmarkchurch.churchcenter.com/people/forms/533">Prayer Request Form</a></li>
 		<li><a href="https://landmarkchurch.churchcenter.com/people/forms/373239">Baptism Form</a></li>
+		<li><a href="https://forms.gle/vEjQ8q3QHArU1MYL7">Thank You Cards</a></li>
 	</ul>
-	<h3>Google Workspace</h3>
-	<ul>
-		<li><a href="https://mail.landmarklafayette.com">Email</a></li>
-		<li><a href="https://drive.landmarklafayette.com">Drive (File Storage)</a></li>
-		<li><a href="https://calendar.google.com">Calendar</a></li>
-	</ul>
+		</div>
+		<div class="flex-items">
 	<h3>Planning Center</h3>
 	<ul>
 		<li><a href="https://home.planningcenteronline.com">Dashboard</a></li>
@@ -38,12 +84,15 @@
 		<li><a href="https://registrations.planningcenteronline.com/">Registrations</a></li>
 		<li><a href="https://services.planningcenteronline.com/">Services</a></li>
 	</ul>
-	<h3>Contact Info</h3>
+	</div>
+	</div>
+	<footer>
 	<ul>
 		<li><strong>Mailing:</strong> PO Box 62833, Lafayette, LA 70596</li>
 		<li><strong>Physical:</strong> 1610 W Willow St, Scott, LA 70583</li>
 		<li>337-232-3974</li>
 		<li>info@landmarklafayette.com</li>
 	</ul>
+	</footer>
 </body>
 </html>
