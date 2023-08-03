@@ -49,13 +49,14 @@
 				text-decoration: none;
 				background: white;
 				border-radius: 5px;
-				padding: 5px;
+				padding: 0.5em;
+				line-height: 1.5em;
 				color: black;
 				display: inline-block;
 				border: thin solid black;
 			}
-			.main-links p a:hover {
-				opacity: 0.8;
+			.main-links p a:hover, select:hover {
+				background: lightcyan;
 			}
 			#date {
 				opacity: 0.8;
@@ -86,7 +87,7 @@
 			  /* styling */
 			  background-color: white;
 			  border: thin solid black;
-			  border-radius: 4px;
+			  border-radius: 5px;
 			  display: inline-block;
 			  font: inherit;
 			  line-height: 1.5em;
@@ -101,6 +102,9 @@
 			  -webkit-appearance: none;
 			  -moz-appearance: none;
 			}
+			.pco {
+				margin-bottom: 50px;
+			}
 		</style>
 	</head>
 <body>
@@ -108,7 +112,7 @@
 	<div class="main-links">
 		<p><a href="https://mail.landmarklafayette.com">✉️ Email</a> <a href="https://drive.landmarklafayette.com">🗄 Files</a> <a href="https://calendar.google.com">📆 Calendar</a></p>
 	</div>
-	<div>
+	<div class="pco">
 		<select id="menu" class="minimal">
 			<option value="default">PLANNING CENTER</option>
 			<option value="link1">Dashboard</option>
@@ -152,33 +156,24 @@
 			});
 		</script>
 	</div>
+	<h3>Other Links</h3>
 	<div class="flex-container">
 		<div class="flex-items">
-	<h3>Important Links</h3>
 	<ul>
 		<li><a href="https://landmarklafayette.com">Landmark Church</a></li>
 		<li><a href="https://safehousefamily.com">Safehouse</a></li>
 		<li><a href="https://biblegateway.com">Bible Gateway</a></li>
+		<li><a href="https://quickbooks.com">Quickbooks</a></li>
+		<li><a href="https://forms.gle/vEjQ8q3QHArU1MYL7">Thank You Cards</a></li>
+	</ul>
+		</div>
+		<div class="flex-items">
+	<ul>
 		<li><a href="https://forms.gle/t8bauwazG1mfQCtP8">Submit Sermon</a></li>
 		<li><a href="https://drive.google.com/drive/folders/1E0U1r7kuPSy5fjfLljK71Aj1VM6Jxk9A">All Handouts</a></li>
 		<li><a href="https://landmarkchurch.churchcenter.com/people/forms/533">Prayer Request Form</a></li>
 		<li><a href="https://landmarkchurch.churchcenter.com/people/forms/373239">Baptism Form</a></li>
 		<li><a href="https://www.youtube.com/watch?v=ey4JnDqAHSk">Baptism Video</a></li>
-		<li><a href="https://forms.gle/vEjQ8q3QHArU1MYL7">Thank You Cards</a></li>
-	</ul>
-		</div>
-		<div class="flex-items">
-	<h3>Planning Center</h3>
-	<ul>
-		<li><a href="https://home.planningcenteronline.com">Dashboard</a></li>
-		<li><a href="https://calendar.planningcenteronline.com">Calendar (for viewing)</a></li>
-		<li><a href="https://check-ins.planningcenteronline.com/">Check-ins</a></li>
-		<li><a href="https://giving.planningcenteronline.com/">Giving</a></li>
-		<li><a href="https://groups.planningcenteronline.com/">Groups</a></li>
-		<li><a href="https://people.planningcenteronline.com/">People (database)</a></li>
-		<li><a href="https://publishing.planningcenteronline.com/">Publishing (app)</a></li>
-		<li><a href="https://registrations.planningcenteronline.com/">Registrations</a></li>
-		<li><a href="https://services.planningcenteronline.com/">Services</a></li>
 	</ul>
 	</div>
 	</div>
@@ -186,9 +181,9 @@
 	<ul>
 		<li><strong>Mailing:</strong> PO Box 62833, Lafayette, LA 70596</li>
 		<li><strong>Physical:</strong> 1610 W Willow St, Scott, LA 70583</li>
-		<li>337-232-3974</li>
-		<li><a href="mailto:info@landmarklafayette.com">info@landmarklafayette.com</a></li>
-		<li><a href="https://landmarklafayette.com/app">Link to Download App</a></li>
+		<li><strong>Phone:</strong> 337-232-3974</li>
+		<li><strong>Email:</strong> <a href="mailto:info@landmarklafayette.com">info@landmarklafayette.com</a></li>
+		<li><strong>App Link:</strong> <a href="https://landmarklafayette.com/app">Link to Download App</a></li>
 	</ul>
 	</footer>
 </body>
