@@ -47,11 +47,12 @@
 			.main-links p a {
 				margin: 3px;
 				text-decoration: none;
-				background: lightgray;
+				background: white;
 				border-radius: 5px;
 				padding: 5px;
 				color: black;
 				display: inline-block;
+				border: thin solid black;
 			}
 			.main-links p a:hover {
 				opacity: 0.8;
@@ -65,12 +66,91 @@
 				flex-direction: column;
 			  }
 			}
+			select.minimal {
+			  background-image:
+				linear-gradient(45deg, transparent 50%, gray 50%),
+				linear-gradient(135deg, gray 50%, transparent 50%),
+				linear-gradient(to right, #ccc, #ccc);
+			  background-position:
+				calc(100% - 20px) calc(1em + 2px),
+				calc(100% - 15px) calc(1em + 2px),
+				calc(100% - 2.5em) 0.5em;
+			  background-size:
+				5px 5px,
+				5px 5px,
+				1px 1.5em;
+			  background-repeat: no-repeat;
+			}
+			select {
+
+			  /* styling */
+			  background-color: white;
+			  border: thin solid black;
+			  border-radius: 4px;
+			  display: inline-block;
+			  font: inherit;
+			  line-height: 1.5em;
+			  padding: 0.5em 3.5em 0.5em 1em;
+
+			  /* reset */
+
+			  margin: 0;
+			  -webkit-box-sizing: border-box;
+			  -moz-box-sizing: border-box;
+			  box-sizing: border-box;
+			  -webkit-appearance: none;
+			  -moz-appearance: none;
+			}
 		</style>
 	</head>
 <body>
 	<img src="/assets/standard.svg" >
 	<div class="main-links">
 		<p><a href="https://mail.landmarklafayette.com">✉️ Email</a> <a href="https://drive.landmarklafayette.com">🗄 Files</a> <a href="https://calendar.google.com">📆 Calendar</a></p>
+	</div>
+	<div>
+		<select id="menu" class="minimal">
+			<option value="default">PLANNING CENTER</option>
+			<option value="link1">Dashboard</option>
+			<option value="link2">Calendar</option>
+			<option value="link3">Checkins</option>
+			<option value="link4">Giving</option>
+			<option value="link5">Groups</option>
+			<option value="link6">People</option>
+			<option value="link7">Publishing</option>
+			<option value="link8">Registrations</option>
+			<option value="link9">Services</option>
+			<!-- Add more options as needed -->
+		</select>
+
+		<script>
+			// Get the dropdown element
+			var dropdown = document.getElementById("menu");
+
+			// Add event listener to handle selection change
+			dropdown.addEventListener("change", function () {
+				// Get the selected option's value
+				var selectedOption = dropdown.value;
+
+				// Define the associated links
+				var links = {
+					"default": "",
+					"link1": "https://home.planningcenteronline.com/",
+					"link2": "https://calendar.planningcenteronline.com/",
+					"link3": "https://check-ins.planningcenteronline.com/",
+					"link4": "https://giving.planningcenteronline.com/",
+					"link5": "https://groups.planningcenteronline.com/",
+					"link6": "https://people.planningcenteronline.com/",
+					"link7": "https://publishing.planningcenteronline.com/",
+					"link8": "https://registrations.planningcenteronline.com/",
+					"link9": "https://services.planningcenteronline.com/",
+					// Add more links as needed
+				};
+
+				// Redirect to the selected link
+				window.location.href = links[selectedOption];
+			});
+		</script>
 	</div>
 	<div class="flex-container">
 		<div class="flex-items">
