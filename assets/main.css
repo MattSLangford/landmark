@@ -2,10 +2,6 @@ body {font-family: -apple-system,BlinkMacSystemFont,sans-serif; font-size: 20px;
 
 .container {}
 
-.alert {max-width:550px; margin: 10px auto; background-color: orange; color: white; border-radius: 10px; text-align: center;}
-.alert a, alert a:visited {color: white;}
-.alert p {padding: 10px; margin-top: 0;}
-
 h1, h2, h3, h4, h5, h6 {color: #1f343f;}
 
 h3.service_time {text-align: center;}
@@ -20,8 +16,8 @@ header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
 
 .icon {display: none;}
 
-.hero {max-width: 1400px; margin: 0 auto; margin-top: 30px;}
-.hero img {width: 100%; object-fit:cover; max-height: 600px;}
+.hero {max-width: 1000px; margin: 0 auto; margin-top: 30px;}
+.hero img {width: 100%; object-fit:cover; max-height: 600px; border-radius: 20px;}
 .hero h2 {text-align: center; margin: 50px auto; font-size: 2.2em; line-height: 1.5em; max-width: 1200px;}
 
 .content {max-width: 800px; margin: 0 auto 50px; padding: 20px;}
