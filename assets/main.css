@@ -15,7 +15,8 @@ header ul {text-align: center; padding: 0; margin: 0;}
 header ul li {display: inline-block; padding: 12px; border: none;}
 header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
 
-.alert {max-width: 600px; background: #1f343f; border-radius: 20px; margin: 0 auto;}
+.wrapper {padding: 0 20px; max-width: 600px;}
+.alert {background: #1f343f; border-radius: 20px; margin: 0 auto; }
 .alert p { color: white; padding: 10px 20px; text-align: center;}
 .alert a {color: white; }
 
