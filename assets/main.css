@@ -28,7 +28,8 @@ header ul li a {text-decoration: none; color: #1f343f; font-weight: bold;}
 blockquote {border-left: 3px solid #1f343f; padding-left: 20px; font-size: 0.9em;}
 
 .pods, .footer-pods {display: flex; flex-wrap: wrap; justify-content: center; }
-.pod {background: rgba(210, 210, 210, 0.33); border-radius: 20px; padding: 15px; flex: 25%; margin: 10px 5px;}
+.pod {background: rgba(210, 210, 210, 0.33); border-radius: 20px; padding: 15px; flex: 25%; margin: 10px 5px; text-align:center;}
+.pod p {text-align: left;}
 .pod img { max-width: 60px; border-radius: 100%;}
 .footer-pod {flex: 30%; margin: 0 10px;}
 
