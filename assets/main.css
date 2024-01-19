@@ -37,16 +37,10 @@ hr {border: 1px solid #1f343f; width: 80%; margin: 60px auto;}
   .pods, .footer-pods {display: inline;}
   .pod, .footer-pod {flex: none;}
   .footer-pod ul {text-align: center;}
-  .alert {width: 95%;}
   .hero h2 {padding: 20px; margin: 0 auto; font-size: 2em; line-height: 1.2em;}
   .hero img {object-fit: cover; height: 300px;}
   .icon {display: inline;}
-  .navigation #myLinks {display: none;}
   .navigation {text-align: center;}
-  .navigation a {color: #1f343f; text-decoration: none; display: block;}
-  #myLinks {background: #e3e3e3;}
-  header ul li {display: list-item; text-align: center; border-bottom:1px dotted white;}
-  header ul {margin-top: 10px;}
 }
 
 button {padding: 10px 30px; border: none; background: #1f343f; border-radius: 20px; font-size: 0.7em; margin-top:10px; color:white;}
