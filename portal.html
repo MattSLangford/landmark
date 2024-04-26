@@ -15,12 +15,7 @@
 
 		header {
 			text-align: center;
-			padding: 20px 0;
-			margin-bottom: 20px;
-		}
-
-		.mission-statement {
-			margin: 20px 10px;
+			padding: 40px 0;
 		}
 
 		main {
@@ -71,64 +66,135 @@
 			margin-bottom: 10px;
 		}
 
-		footer {
-			text-align: center;
-			padding: 20px;
-			background-color: #f9f9f9;
-			border-top: 1px solid #ccc;
-			margin-top: 20px;
-			border-radius: 5px;
+footer {
+			padding: 20px; /* Add padding for spacing */
+			text-align: center; /* Center align the content */
 		}
 
-		footer p {
-			margin: 5px 0;
+		.footer-content {
+			max-width: 1200px; /* Set maximum width */
+			margin: 0 auto; /* Center the content horizontally */
 		}
+
+		.footer-address, .footer-taxes {
+			margin-bottom: 20px; /* Add margin between sections */
+		}
+
+		.footer-address p, .footer-taxes p {
+			margin: 5px 0; /* Add margin for spacing */
+		}
+
+		.footer-address strong, .footer-taxes strong {
+			font-weight: bold; /* Make labels bold */
+		}
+
+		.footer-address a, .footer-taxes a {
+			color: #333; /* Set text color for links */
+			text-decoration: none; /* Remove underline */
+			transition: color 0.3s ease; /* Add transition for hover effect */
+		}
+
+		.footer-address a:hover, .footer-taxes a:hover {
+			color: #666; /* Change text color on hover */
+		}
+
+		.tax-info p {
+			margin: 5px 0; /* Add margin for spacing */
+		}
+
+
+
+
+.prominent-links {
+			display: flex;
+			justify-content: center;
+			margin-top: 20px; /* Add top margin */
+		}
+
+		.prominent-links .icon {
+			font-size: 50px; /* Adjust size as needed */
+			display: inline-block;
+			line-height: 1; /* Ensure consistent height */
+			padding: 10px; /* Add padding to create space around the icons */
+			background-color: #f0f0f0; /* Subtle background color */
+			border-radius: 5px; /* Add border radius for rounded corners */
+			transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add hover effect and shadow transition */
+			margin: 0 10px; /* Add spacing between the icons */
+		}
+
+		.prominent-links .icon:hover {
+			background-color: #ccc; /* Change background color on hover */
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+		}
+.category-links a:hover {
+			text-decoration-color: #ccc; /* Set color of underline */
+		}
+
+
 	</style>
 
 </head>
 <body>
 	<header>
 		<img src="/assets/standard.svg" alt="Landmark Church Logo" class="logo">
-		<h1>Landmark Church Portal</h1>
-		<p class="mission-statement">Discover Jesus, Know God, Live as Committed Disciples of Christ</p>
+<div class="prominent-links">
+			<a href="#" class="email-link"><span class="icon">✉️</span></a>
+			<a href="#" class="calendar-link"><span class="icon">📅</span></a>
+		</div>
 	</header>
 	<main>
-		<section class="category">
-			<div class="category-header" onclick="toggleCategory(this)">Planning Center <span class="arrow">&#9660;</span></div>
-			<div class="category-links">
-				<a href="#">🙋 People</a>
-				<a href="#">📝 Registrations</a>
-				<a href="#">💵 Giving</a>
-				<a href="#">📋 Check-Ins</a>
-				<a href="#">⛪ Services</a>
-				<a href="#">👫 Groups</a>
-				<a href="#">📚 Resources</a>
-			</div>
-		</section>
-		<section class="category">
-			<div class="category-header" onclick="toggleCategory(this)">Public Links <span class="arrow">&#9660;</span></div>
-			<div class="category-links">
-				<a href="#">🌐 Website</a>
-				<a href="#">📘 Facebook</a>
-				<a href="#">🐦 Twitter</a>
-				<a href="#">📄 Forms</a>
-			</div>
-		</section>
-		<section class="category">
-			<div class="category-header" onclick="toggleCategory(this)">Office Use <span class="arrow">&#9660;</span></div>
-			<div class="category-links">
-				<a href="#">📎 Link Placeholder 1</a>
-				<a href="#">📌 Link Placeholder 2</a>
-				<a href="#">🔗 Link Placeholder 3</a>
-			</div>
-		</section>
+<section class="category">
+		<div class="category-header" onclick="toggleCategory(this)">Planning Center <span class="arrow">&#9660;</span></div>
+		<div class="category-links">
+			<a href="https://planningcenteronline.com/people">🙋 People</a>
+			<a href="https://planningcenteronline.com/registrations">📝 Registrations</a>
+			<a href="https://planningcenteronline.com/giving">💵 Giving</a>
+			<a href="https://planningcenteronline.com/check-ins">📋 Check-Ins</a>
+			<a href="https://planningcenteronline.com/services">⛪ Services</a>
+			<a href="https://planningcenteronline.com/groups">👫 Groups</a>
+			<a href="https://planningcenteronline.com/resources">📚 Resources</a>
+		</div>
+	</section>
+<section class="category">
+		<div class="category-header" onclick="toggleCategory(this)">Public Links <span class="arrow">&#9660;</span></div>
+		<div class="category-links">
+			<a href="https://landmarklafayette.com">🏠 Landmark Church</a>
+			<a href="https://facebook.com/landmarklafayette">📘 Facebook</a>
+			<a href="https://twitter.com/landmarkchurch">🐦 Twitter/X</a>
+			<a href="https://instagram.com/landmarkchurch">📷 Instagram</a>
+			<a href="https://landmarkchurch.churchcenter.com/setup">📱 Download Church Center App</a>
+		</div>
+	</section>
+<section class="category">
+		<div class="category-header" onclick="toggleCategory(this)">Office Use <span class="arrow">&#9660;</span></div>
+		<div class="category-links">
+			<a href="#">📊 Quickbooks</a>
+			<a href="https://drive.google.com/drive/folders/1E0U1r7kuPSy5fjfLljK71Aj1VM6Jxk9A">📂 All Handouts</a>
+			<a href="https://landmarkchurch.churchcenter.com/people/forms/373239">🌊 Baptism Form</a>
+			<a href="https://www.youtube.com/watch?v=ey4JnDqAHSk">🎥 Baptism Video</a>
+		</div>
+	</section>
+
 	</main>
-	<footer>
-		<p>Landmark Church</p>
-		<p>123 Main St, Lafayette, LA</p>
-		<p>PO Box 456, Lafayette, LA</p>
-		<p>Phone: 555-123-4567</p>
+<footer>
+		<div class="footer-content">
+			<div class="footer-address">
+				<p><strong>Physical Address:</strong> 1610 W Willow St, Scott, LA 70596</p>
+				<p><strong>Mailing Address:</strong> PO Box 62833, Lafayette, LA 70583</p>
+				<p><strong>Phone:</strong> <a href="tel:+13372323974">337.232.3974</a></p>
+				<p><strong>Email:</strong> <a href="mailto:info@landmarklafayette.com">info@landmarklafayette.com</a></p>
+			</div>
+			<div class="footer-taxes">
+				<div class="tax-info">
+					<p><strong>Landmark Tax ID:</strong> 721318888</p>
+					<p><strong>Safehouse Tax ID:</strong> 471596395</p>
+					<p><strong>Destiny Group Number:</strong> 4365</p>
+				</div>
+			</div>
+		</div>
 	</footer>
+
+
 
 	<script>
 		function toggleCategory(categoryHeader) {
