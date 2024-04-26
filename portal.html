@@ -6,22 +6,21 @@
 	<title>Landmark Church Portal</title>
 <style>
 		body {
-			font-family: Arial, sans-serif; /* Sans-serif font */
-			background-color: #f7f7f7; /* Light gray background */
-			color: #333; /* Dark gray text color */
-			margin: 0; /* Remove default margin */
-			padding: 0; /* Remove default padding */
+			font-family: Arial, sans-serif;
+			background-color: #f7f7f7;
+			color: #333;
+			margin: 0;
+			padding: 0;
 		}
 
 		header {
 			text-align: center;
 			padding: 20px 0;
-			margin-bottom: 20px; /* Add spacing below the header */
+			margin-bottom: 20px;
 		}
 
 		.mission-statement {
-			margin: 20px 10px; /* Add side padding/margins */
-			font-family: Arial, sans-serif; /* Sans-serif font */
+			margin: 20px 10px;
 		}
 
 		nav {
@@ -29,22 +28,22 @@
 			justify-content: center;
 			gap: 10px;
 			padding: 20px 0;
-			border-bottom: 1px solid #ddd; /* Very light gray border */
-			z-index: 1; /* Ensure the navigation is above other content */
+			border-bottom: 1px solid #ddd;
+			z-index: 1;
 		}
 
 		nav a {
 			text-decoration: none;
-			color: #333; /* Dark gray text color */
+			color: #333;
 			font-weight: bold;
-			transition: background-color 0.3s ease; /* Add transition for better hover effect */
-			padding: 8px 12px; /* Add padding to make the links more clickable */
-			border-radius: 5px; /* Rounded corners */
-			font-size: 14px; /* Decrease font size for mobile devices */
+			transition: background-color 0.3s ease;
+			padding: 8px 12px;
+			border-radius: 5px;
+			font-size: 14px;
 		}
 
 		nav a:hover {
-			background-color: #f0f0f0; /* Very light gray on hover */
+			background-color: #f0f0f0;
 		}
 
 		main {
@@ -55,31 +54,31 @@
 
 		.category {
 			flex: 1;
-			min-width: 200px; /* Narrower flexbox columns for mobile devices */
+			min-width: 200px;
 			margin: 10px;
 			text-align: center;
-			padding: 15px 10px; /* Decrease spacing between list items */
+			padding: 15px 10px;
 		}
 
 		.category a {
 			display: block;
-			margin-bottom: 5px; /* Decrease spacing between list items */
+			margin-bottom: 5px;
 			text-decoration: none;
 			color: #555;
-			transition: background-color 0.3s ease; /* Add transition for better hover effect */
-			padding: 8px 12px; /* Add padding to make the links more clickable */
-			border-radius: 5px; /* Rounded corners */
-			font-size: 14px; /* Decrease font size for mobile devices */
+			transition: background-color 0.3s ease;
+			padding: 8px 12px;
+			border-radius: 5px;
+			font-size: 14px;
 		}
 
 		.category a:hover {
-			background-color: #f0f0f0; /* Very light gray on hover */
+			background-color: #f0f0f0;
 		}
 
 		footer {
 			text-align: center;
 			padding: 20px;
-			z-index: 1; /* Ensure the footer is above other content */
+			z-index: 1;
 		}
 
 		.contact-info {
@@ -87,11 +86,26 @@
 			flex-direction: column;
 			align-items: center;
 			font-size: 0.9em;
-			color: #666; /* Medium gray text color */
+			color: #666;
 		}
 
 		.contact-info p {
 			margin: 5px 0;
+		}
+
+		@media screen and (max-width: 768px) {
+			nav {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.category {
+				min-width: auto;
+			}
+
+			.category a {
+				font-size: 12px;
+			}
 		}
 	</style>
 
