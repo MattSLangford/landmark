@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Landmark Church Portal</title>
+
 <style>
 		body {
 			font-family: Arial, sans-serif;
@@ -39,7 +40,7 @@
 			transition: background-color 0.3s ease;
 			padding: 8px 12px;
 			border-radius: 5px;
-			font-size: 14px;
+			font-size: 16px; /* Increased font size for better readability on mobile */
 		}
 
 		nav a:hover {
@@ -54,7 +55,6 @@
 
 		.category {
 			flex: 1;
-			min-width: 200px;
 			margin: 10px;
 			text-align: center;
 			padding: 15px 10px;
@@ -68,7 +68,7 @@
 			transition: background-color 0.3s ease;
 			padding: 8px 12px;
 			border-radius: 5px;
-			font-size: 14px;
+			font-size: 16px; /* Increased font size for better readability on mobile */
 		}
 
 		.category a:hover {
@@ -94,20 +94,17 @@
 		}
 
 		@media screen and (max-width: 768px) {
-			nav {
-				flex-direction: column;
-				align-items: center;
-			}
-
 			.category {
-				min-width: auto;
+				flex: none; /* Remove flex property to allow columns to stack vertically */
+				width: 100%; /* Set width to 100% for full width on mobile */
 			}
 
 			.category a {
-				font-size: 12px;
+				font-size: 14px; /* Decrease font size for better readability on mobile */
 			}
 		}
 	</style>
+
 
 </head>
 <body>
