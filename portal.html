@@ -4,8 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Landmark Church Portal</title>
-
-<style>
+	<style>
 		body {
 			font-family: Arial, sans-serif;
 			background-color: #f7f7f7;
@@ -24,43 +23,39 @@
 			margin: 20px 10px;
 		}
 
-		nav {
-			display: flex;
-			justify-content: center;
-			gap: 10px;
-			padding: 20px 0;
-			border-bottom: 1px solid #ddd;
-			z-index: 1;
-		}
-
-		nav a {
-			text-decoration: none;
-			color: #333;
-			font-weight: bold;
-			transition: background-color 0.3s ease;
-			padding: 8px 12px;
-			border-radius: 5px;
-			font-size: 16px; /* Increased font size for better readability on mobile */
-		}
-
-		nav a:hover {
-			background-color: #f0f0f0;
-		}
-
 		main {
-			display: flex;
-			flex-wrap: wrap;
 			padding: 20px;
 		}
 
 		.category {
-			flex: 1;
-			margin: 10px;
-			text-align: center;
-			padding: 15px 10px;
+			margin-bottom: 20px;
+			background-color: #f9f9f9;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		}
 
-		.category a {
+		.category-header {
+			cursor: pointer;
+			font-weight: bold;
+			background-color: #ddd;
+			padding: 10px 20px;
+			border-radius: 5px;
+			position: relative;
+		}
+
+		.category-header .arrow {
+			position: absolute;
+			top: 50%;
+			right: 20px;
+			transform: translateY(-50%);
+		}
+
+		.category-links {
+			display: none;
+			padding-left: 20px;
+		}
+
+		.category-links a {
 			display: block;
 			margin-bottom: 5px;
 			text-decoration: none;
@@ -68,89 +63,80 @@
 			transition: background-color 0.3s ease;
 			padding: 8px 12px;
 			border-radius: 5px;
-			font-size: 16px; /* Increased font size for better readability on mobile */
 		}
 
-		.category a:hover {
-			background-color: #f0f0f0;
+		img.logo {
+			width: 150px;
+			height: auto;
+			margin-bottom: 10px;
 		}
 
 		footer {
 			text-align: center;
 			padding: 20px;
-			z-index: 1;
+			background-color: #f9f9f9;
+			border-top: 1px solid #ccc;
+			margin-top: 20px;
+			border-radius: 5px;
 		}
 
-		.contact-info {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			font-size: 0.9em;
-			color: #666;
-		}
-
-		.contact-info p {
+		footer p {
 			margin: 5px 0;
 		}
-
-		@media screen and (max-width: 768px) {
-			.category {
-				flex: none; /* Remove flex property to allow columns to stack vertically */
-				width: 100%; /* Set width to 100% for full width on mobile */
-			}
-
-			.category a {
-				font-size: 14px; /* Decrease font size for better readability on mobile */
-			}
-		}
 	</style>
-
 
 </head>
 <body>
 	<header>
 		<img src="/assets/standard.svg" alt="Landmark Church Logo" class="logo">
+		<h1>Landmark Church Portal</h1>
 		<p class="mission-statement">Discover Jesus, Know God, Live as Committed Disciples of Christ</p>
 	</header>
-	<nav>
-		<a href="planning-center-dashboard.html">Planning Center</a>
-		<a href="email.html">Email</a>
-		<a href="calendar.html">Calendar</a>
-		<a href="quickbooks.html">Quickbooks</a>
-	</nav>
 	<main>
 		<section class="category">
-			<h2>Planning Center</h2>
-			<a href="https://people.planningcenteronline.com">&#128100; People</a>
-			<a href="https://registrations.planningcenteronline.com">&#128197; Registrations</a>
-			<a href="https://giving.planningcenteronline.com">&#128176; Giving</a>
-			<a href="https://check-ins.planningcenteronline.com">&#128241; Check-Ins</a>
-			<a href="https://services.planningcenteronline.com">&#127911; Services</a>
-			<a href="https://groups.planningcenteronline.com">&#128101; Groups</a>
-			<a href="https://resources.planningcenteronline.com">&#128230; Resources</a>
+			<div class="category-header" onclick="toggleCategory(this)">Planning Center <span class="arrow">&#9660;</span></div>
+			<div class="category-links">
+				<a href="#">🙋 People</a>
+				<a href="#">📝 Registrations</a>
+				<a href="#">💵 Giving</a>
+				<a href="#">📋 Check-Ins</a>
+				<a href="#">⛪ Services</a>
+				<a href="#">👫 Groups</a>
+				<a href="#">📚 Resources</a>
+			</div>
 		</section>
 		<section class="category">
-			<h2>Public Links</h2>
-			<a href="https://www.landmarkchurch.net">&#127968; Website</a>
-			<a href="https://www.facebook.com/LandmarkChurch">&#127944; Facebook</a>
-			<a href="https://www.twitter.com/LandmarkChurch">&#127758; Twitter</a>
-			<a href="forms.html">&#128221; Forms</a>
+			<div class="category-header" onclick="toggleCategory(this)">Public Links <span class="arrow">&#9660;</span></div>
+			<div class="category-links">
+				<a href="#">🌐 Website</a>
+				<a href="#">📘 Facebook</a>
+				<a href="#">🐦 Twitter</a>
+				<a href="#">📄 Forms</a>
+			</div>
 		</section>
 		<section class="category">
-			<h2>Office Use</h2>
-			<a href="#">Link Placeholder 1</a>
-			<a href="#">Link Placeholder 2</a>
-			<a href="#">Link Placeholder 3</a>
+			<div class="category-header" onclick="toggleCategory(this)">Office Use <span class="arrow">&#9660;</span></div>
+			<div class="category-links">
+				<a href="#">📎 Link Placeholder 1</a>
+				<a href="#">📌 Link Placeholder 2</a>
+				<a href="#">🔗 Link Placeholder 3</a>
+			</div>
 		</section>
 	</main>
-<footer>
-		<div class="contact-info">
-			<p>Physical Address: 123 Church St, Lafayette, LA 70503</p>
-			<p>Mailing Address: PO Box 321, Lafayette, LA 70502</p>
-			<p>Email: <a href="mailto:info@landmarkchurch.net">info@landmarkchurch.net</a></p>
-			<p>Phone: <a href="tel:+13375551234">(337) 555-1234</a></p>
-		</div>
+	<footer>
+		<p>Landmark Church</p>
+		<p>123 Main St, Lafayette, LA</p>
+		<p>PO Box 456, Lafayette, LA</p>
+		<p>Phone: 555-123-4567</p>
 	</footer>
+
+	<script>
+		function toggleCategory(categoryHeader) {
+			const categoryLinks = categoryHeader.nextElementSibling;
+			categoryLinks.style.display = (categoryLinks.style.display === 'block') ? 'none' : 'block';
+		}
+	</script>
 </body>
 </html>
+
 
