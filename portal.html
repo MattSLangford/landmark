@@ -10,8 +10,9 @@
 			font-family: Arial, sans-serif;
 			background-color: #f7f7f7;
 			color: #333;
-			margin: 0;
+			margin: 0 auto;
 			padding: 0;
+			max-width: 1000px;
 		}
 
 		header {
@@ -103,86 +104,118 @@ footer {
 			margin: 5px 0; /* Add margin for spacing */
 		}
 
-
-
-
 .prominent-links {
 			display: flex;
 			justify-content: center;
-			margin-top: 20px; /* Add top margin */
+			margin-top: 20px; /* Maintain top margin */
+			flex-wrap: wrap; /* Allows items to wrap in a responsive manner */
+		}
+
+		.prominent-links a {
+			text-decoration: none; /* Removes underline from links */
+			color: inherit; /* Ensures text inherits the parent color */
+			display: flex;
+			flex-direction: column; /* Stacks icon and label vertically */
+			align-items: center; /* Center-aligns items vertically */
+			margin: 10px 10px; /* Maintain spacing between items */
 		}
 
 		.prominent-links .icon {
-			font-size: 50px; /* Adjust size as needed */
-			display: inline-block;
-			line-height: 1; /* Ensure consistent height */
-			padding: 10px; /* Add padding to create space around the icons */
+			font-size: 50px; /* Maintain size */
+			line-height: 1; /* Ensures icon aligns properly */
+			padding: 10px; /* Maintain padding */
 			background-color: #f0f0f0; /* Subtle background color */
-			border-radius: 5px; /* Add border radius for rounded corners */
-			transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add hover effect and shadow transition */
-			margin: 0 10px; /* Add spacing between the icons */
+			border-radius: 5px; /* Rounded corners */
+			transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+			margin-bottom: 5px; /* Space between icon and label */
 		}
 
 		.prominent-links .icon:hover {
-			background-color: #ccc; /* Change background color on hover */
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+			background-color: #ccc; /* Darkens background on hover */
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds shadow on hover */
 		}
+
+		.prominent-links .label {
+			display: block; /* Ensures label appears below icon */
+			text-align: center; /* Center-aligns label text */
+		}
+
+
 .category-links a:hover {
 			text-decoration-color: #ccc; /* Set color of underline */
+		}
+.social-links a {
+			margin: 0 10px;
+			color: #333; /* Default icon color, change as needed */
+			font-size: 24px; /* Adjust size as needed */
+		}
+
+		.social-links a:hover {
+			color: #666; /* Icon color on hover, change as needed */
 		}
 
 
 	</style>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 	<header>
 		<img src="/assets/standard.svg" alt="Landmark Church Logo" class="logo">
 <div class="prominent-links">
-			<a href="https://landmarklafayette.com" class="homepage-link"><span class="icon">⛪️</span></a>
-			<a href="https://mail.landmarklafayette.com" class="email-link"><span class="icon">✉️</span></a>
-			<a href="https://calendar.landmarklafayette.com" class="calendar-link"><span class="icon">📅</span></a>
+			<a href="https://landmarklafayette.com" class="homepage-link">
+				<span class="icon">⛪️</span>
+				<span class="label">Website</span>
+			</a>
+			<a href="https://mail.landmarklafayette.com" class="email-link">
+				<span class="icon">✉️</span>
+				<span class="label">Email</span>
+			</a>
+			<a href="https://calendar.landmarklafayette.com" class="calendar-link">
+				<span class="icon">📅</span>
+				<span class="label">Calendar</span>
+			</a>
+			<a href="https://people.planningcenteronline.com/" class="people-link">
+				<span class="icon">👥</span>
+				<span class="label">PCO</span>
+			</a>
+			<a href="https://safehousefamily.com" class="safehouse-link">
+				<span class="icon">🔒</span>
+				<span class="label">Safehouse</span>
+			</a>
+			<a href="https://drive.google.com/drive/folders/1E0U1r7kuPSy5fjfLljK71Aj1VM6Jxk9A" class="handouts-link">
+				<span class="icon">📂</span>
+				<span class="label">Handouts</span>
+			</a>
+			<a href="https://quickbooks.com" class="quickbooks-link">
+				<span class="icon">💼</span>
+				<span class="label">Quickbooks</span>
+			</a>
+
 		</div>
+
 
 	</header>
-	<main>
-<section class="category">
-		<div class="category-header" onclick="toggleCategory(this)">Planning Center <span class="arrow">&#9660;</span></div>
-		<div class="category-links">
-			<a href="https://people.planningcenteronline.com/">🙋 People</a>
-			<a href="https://calendar.planningcenteronline.com/">🗓️ Calendar</a>
-			<a href="https://registrations.planningcenteronline.com/">📝 Registrations</a>
-			<a href="https://giving.planningcenteronline.com/">💵 Giving</a>
-			<a href="https://publishing.planningcenteronline.com/">📰 Publishing</a>
-			<a href="https://check-ins.planningcenteronline.com/">🧒 Check-Ins</a>
-			<a href="https://services.planningcenteronline.com/">⛪ Services</a>
-			<a href="https://groups.planningcenteronline.com/">👫 Groups</a>
-		</div>
-	</section>
-<section class="category">
-		<div class="category-header" onclick="toggleCategory(this)">Public Links <span class="arrow">&#9660;</span></div>
-		<div class="category-links">
-			<a href="https://safehousefamily.com">🔑 Safehouse</a>
-			<a href="https://facebook.com/landmarklafayette">📘 Facebook</a>
-			<a href="https://www.youtube.com/landmarkchurch">📺 Youtube</a>
-			<a href="https://twitter.com/landmarkchurch">🐦 Twitter/X</a>
-			<a href="https://instagram.com/landmarkchurch">📷 Instagram</a>
-			<a href="https://landmarkchurch.churchcenter.com/setup">📱 Download Church Center App</a>
-		</div>
-	</section>
-<section class="category">
-		<div class="category-header" onclick="toggleCategory(this)">Office Use <span class="arrow">&#9660;</span></div>
-		<div class="category-links">
-			<a href="https://quickbooks.com">📊 Quickbooks</a>
-			<a href="https://drive.google.com/drive/folders/1E0U1r7kuPSy5fjfLljK71Aj1VM6Jxk9A">📂 All Handouts</a>
-			<a href="https://landmarkchurch.churchcenter.com/people/forms/373239">🌊 Baptism Form</a>
-			<a href="https://www.youtube.com/watch?v=ey4JnDqAHSk">🎥 Baptism Video</a>
-		</div>
-	</section>
 
+<main>
+		<section class="category">
+			<div class="category-header" onclick="toggleCategory(this)">Essential Links <span class="arrow">&#9660;</span></div>
+			<div class="category-links">
+				<a href="https://landmarkchurch.churchcenter.com/setup">📱 Download Church Center App</a>
+				<a href="https://landmarkchurch.churchcenter.com/people/forms/373239">🌊 Baptism Form</a>
+				<a href="https://www.youtube.com/watch?v=ey4JnDqAHSk">🎥 Baptism Video</a>
+			</div>
+		</section>
 	</main>
+
+
 <footer>
 		<div class="footer-content">
+			<div class="social-links" style="text-align: center; margin-bottom: 20px;">
+				<a href="https://facebook.com/landmarklafayette" class="facebook-link"><i class="fab fa-facebook-f"></i></a>
+				<a href="https://www.youtube.com/landmarkchurch" class="youtube-link"><i class="fab fa-youtube"></i></a>
+				<a href="https://twitter.com/landmarkchurch" class="twitter-link"><i class="fab fa-twitter"></i></a>
+				<a href="https://instagram.com/landmarkchurch" class="instagram-link"><i class="fab fa-instagram"></i></a>
+			</div>
 			<div class="footer-address">
 				<p><strong>Physical:</strong> 1610 W Willow St, Scott, LA 70596</p>
 				<p><strong>Mailing:</strong> PO Box 62833, Lafayette, LA 70583</p>
@@ -198,6 +231,7 @@ footer {
 			</div>
 		</div>
 	</footer>
+
 
 
 
