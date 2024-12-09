@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex, nofollow">
+	<title>Landmark Church Portal</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<style>
+		body {
+					font-family: Arial, sans-serif;
+					background-color: #f7f7f7;
+					color: #333;
+					margin: 0 auto;
+					padding: 0;
+					max-width: 1000px;
+				}
+
+				header {
+					text-align: center;
+					padding: 40px 0;
+				}
+
+				main {
+					padding: 20px;
+				}
+
+				.category {
+					margin-bottom: 20px;
+					background-color: #f9f9f9;
+					border-radius: 5px;
+					box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+				}
+
+				.category-header {
+					cursor: pointer;
+					font-weight: bold;
+					background-color: #ddd;
+					padding: 10px 20px;
+					border-radius: 5px;
+					position: relative;
+				}
+
+				.category-header .arrow {
+					position: absolute;
+					top: 50%;
+					right: 20px;
+					transform: translateY(-50%);
+				}
+
+				.category-links {
+					display: none;
+					padding-left: 20px;
+				}
+
+				.category-links a {
+					display: block;
+					margin-bottom: 5px;
+					text-decoration: none;
+					color: #555;
+					transition: background-color 0.3s ease;
+					padding: 8px 12px;
+					border-radius: 5px;
+				}
+
+				img.logo {
+					width: 150px;
+					height: auto;
+					margin-bottom: 10px;
+				}
+
+		footer {
+					padding: 20px; /* Add padding for spacing */
+					text-align: center; /* Center align the content */
+				}
+
+				.footer-content {
+					max-width: 1200px; /* Set maximum width */
+					margin: 0 auto; /* Center the content horizontally */
+				}
+
+				.footer-address, .footer-taxes {
+					margin-bottom: 20px; /* Add margin between sections */
+				}
+
+				.footer-address p, .footer-taxes p {
+					margin: 5px 0; /* Add margin for spacing */
+				}
+
+				.footer-address strong, .footer-taxes strong {
+					font-weight: bold; /* Make labels bold */
+				}
+
+				.footer-address a, .footer-taxes a {
+					color: #333; /* Set text color for links */
+					text-decoration: none; /* Remove underline */
+					transition: color 0.3s ease; /* Add transition for hover effect */
+				}
+
+				.footer-address a:hover, .footer-taxes a:hover {
+					color: #666; /* Change text color on hover */
+				}
+
+				.tax-info p {
+					margin: 5px 0; /* Add margin for spacing */
+				}
+
+		.prominent-links {
+					display: flex;
+					justify-content: center;
+					margin-top: 20px; /* Maintain top margin */
+					flex-wrap: wrap; /* Allows items to wrap in a responsive manner */
+				}
+
+				.prominent-links a {
+					text-decoration: none; /* Removes underline from links */
+					color: inherit; /* Ensures text inherits the parent color */
+					display: flex;
+					flex-direction: column; /* Stacks icon and label vertically */
+					align-items: center; /* Center-aligns items vertically */
+					margin: 10px 10px; /* Maintain spacing between items */
+				}
+
+				.prominent-links .icon {
+					font-size: 50px; /* Maintain size */
+					line-height: 1; /* Ensures icon aligns properly */
+					padding: 10px; /* Maintain padding */
+					background-color: #f0f0f0; /* Subtle background color */
+					border-radius: 5px; /* Rounded corners */
+					transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+					margin-bottom: 5px; /* Space between icon and label */
+				}
+
+				.prominent-links .icon:hover {
+					background-color: #ccc; /* Darkens background on hover */
+					box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds shadow on hover */
+				}
+
+				.prominent-links .label {
+					display: block; /* Ensures label appears below icon */
+					text-align: center; /* Center-aligns label text */
+				}
+
+
+		.category-links a:hover {
+					text-decoration-color: #ccc; /* Set color of underline */
+				}
+		.social-links a {
+					margin: 0 10px;
+					color: #333; /* Default icon color, change as needed */
+					font-size: 24px; /* Adjust size as needed */
+				}
+
+				.social-links a:hover {
+					color: #666; /* Icon color on hover, change as needed */
+				}
+	</style>
+</head>
+<body>
+	<header>
+		<img src="/assets/standard.svg" alt="Landmark Church Logo" class="logo">
+		<div class="prominent-links">
+			<a href="https://landmarklafayette.com" class="homepage-link">
+				<span class="icon"><i class="fa-solid fa-church"></i></span>
+				<span class="label">Website</span>
+			</a>
+			<a href="https://mail.proton.me" class="email-link">
+				<span class="icon"><i class="fa-solid fa-envelope"></i></span>
+				<span class="label">Email</span>
+			</a>
+			<a href="https://drive.proton.me" class="email-link">
+				<span class="icon"><i class="fa-solid fa-hard-drive"></i></span>
+				<span class="label">Drive</span>
+			</a>
+			<a href="https://people.planningcenteronline.com/" class="people-link">
+				<span class="icon"><i class="fa-solid fa-users"></i></span>
+				<span class="label">PCO</span>
+			</a>
+			<a href="https://drive.proton.me/urls/P3BM9TC910#x7Jffa8rttPA">
+				<span class="icon"><i class="fa-solid fa-folder"></i></span>
+				<span class="label">Handouts</span>
+			</a>
+			<a href="https://quickbooks.com" class="quickbooks-link">
+				<span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+				<span class="label">Quickbooks</span>
+			</a>
+		</div>
+	</header>
+	<main>
+		<section class="category">
+			<div class="category-header" onclick="toggleCategory(this)">Essential Links <span class="arrow">&#9660;</span></div>
+			<div class="category-links">
+				<a href="https://landmarkchurch.churchcenter.com/setup"><i class="fa-solid fa-download"></i> Download Church Center App</a>
+				<a href="https://landmarkchurch.churchcenter.com/calendar/forms/13243"><i class="fa-solid fa-calendar-plus"></i> Add Event to Calendar</a>
+				<a href="https://drive.proton.me/urls/NWS1T6R66C#dRNgNIJsYUne"><i class="fa-solid fa-folder"></i> Freedom Videos/Files</a>
+				<a href="https://landmarkchurch.churchcenter.com/people/forms/373239"><i class="fa-solid fa-water"></i> Baptism Form</a>
+				<a href="https://www.youtube.com/watch?v=ey4JnDqAHSk"><i class="fa-solid fa-video"></i> Baptism Video</a>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<div class="footer-content">
+			<div class="social-links" style="text-align: center; margin-bottom: 20px;">
+				<a href="https://facebook.com/landmarklafayette" class="facebook-link"><i class="fab fa-facebook-f"></i></a>
+				<a href="https://www.youtube.com/landmarkchurch" class="youtube-link"><i class="fab fa-youtube"></i></a>
+				<a href="https://twitter.com/landmarkchurch" class="twitter-link"><i class="fab fa-twitter"></i></a>
+				<a href="https://instagram.com/landmarkchurch" class="instagram-link"><i class="fab fa-instagram"></i></a>
+			</div>
+			<div class="footer-address">
+				<p><strong>Physical:</strong> 1610 W Willow St, Scott, LA 70596</p>
+				<p><strong>Mailing:</strong> PO Box 62833, Lafayette, LA 70583</p>
+				<p><strong>Phone:</strong> <a href="tel:+13372323974">337.232.3974</a></p>
+				<p><strong>Email:</strong> <a href="mailto:info@landmarklafayette.com">info@landmarklafayette.com</a></p>
+			</div>
+			<div class="footer-taxes">
+				<div class="tax-info">
+					<p><strong>Landmark Tax ID:</strong> 721318888</p>
+					<p><strong>Destiny Group Number:</strong> 4365</p>
+					<p><strong>Safehouse Tax ID:</strong> 471596395</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script>
+		function toggleCategory(categoryHeader) {
+			const categoryLinks = categoryHeader.nextElementSibling;
+			categoryLinks.style.display = (categoryLinks.style.display === 'block') ? 'none' : 'block';
+		}
+	</script>
+</body>
+</html>
+
