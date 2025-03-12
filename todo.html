@@ -3,41 +3,73 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Todoist Tasks</title>
+	<title>Landmark Church Tasks</title>
 	<style>
 		body {
 			font-family: Arial, sans-serif;
+			background-color: #f5f5f5;
 			max-width: 600px;
 			margin: auto;
 			padding: 20px;
 		}
-		h1 {
+		h1, h2 {
 			text-align: center;
 		}
-		h2 {
-			border-bottom: 2px solid #ddd;
-			padding-bottom: 5px;
+		.blurb {
+			text-align: center;
+			font-size: 14px;
+			margin-bottom: 20px;
+			color: #555;
 		}
 		.task {
-			padding: 10px;
-			margin: 5px 0;
-			border: 1px solid #ddd;
+			background: white;
+			padding: 15px;
+			margin: 10px 0;
 			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		}
-		.completed {
-			background-color: #f0f0f0;
+		.task-name {
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.task-desc {
+			font-size: 14px;
+			color: #555;
+			margin-top: 5px;
+		}
+		.task-due {
+			font-size: 12px;
+			color: #888;
+			margin-top: 10px;
+			display: block;
+		}
+		.completed-list {
+			list-style-type: none;
+			padding: 0;
+		}
+		.completed-list li {
 			text-decoration: line-through;
+			color: #777;
+			padding: 5px 0;
 		}
 	</style>
 </head>
 <body>
-	<h1>Todoist Task List</h1>
+	<h1>Landmark Church Tasks</h1>
+
+	<p class="blurb">
+		Thank you for your willingness to help around Landmark Church.
+		If you'd like to take on one of these tasks, contact
+		<a href="mailto:matt@landmarklafayette.com">matt@landmarklafayette.com</a>
+		to make arrangements. As always, we know your time is valuable,
+		and we sincerely appreciate your generosity in giving it.
+	</p>
 
 	<h2>Pending Tasks</h2>
 	<div id="pending"></div>
 
 	<h2>Completed Tasks</h2>
-	<div id="completed"></div>
+	<ul id="completed" class="completed-list"></ul>
 
 	<script>
 		fetch("https://landmarklafayette.com/.netlify/functions/getTasks")
@@ -47,19 +79,30 @@
 				tasks.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
 				const pendingDiv = document.getElementById("pending");
-				const completedDiv = document.getElementById("completed");
+				const completedList = document.getElementById("completed");
 
 				tasks.forEach(task => {
-					const taskElement = document.createElement("div");
-					taskElement.classList.add("task");
-
-					let dueDate = task.due ? `Due: ${task.due.string}` : "No due date";
-					taskElement.innerHTML = `<strong>${task.content}</strong><br>${task.description || ''}<br><small>${dueDate}</small>`;
-
 					if (task.completed) {
-						taskElement.classList.add("completed");
-						completedDiv.appendChild(taskElement);
+						// Add to completed list (only task name, strikethrough)
+						const completedItem = document.createElement("li");
+						completedItem.textContent = task.content;
+						completedList.appendChild(completedItem);
 					} else {
+						// Create a task card for pending tasks
+						const taskElement = document.createElement("div");
+						taskElement.classList.add("task");
+
+						let taskContent = `<div class="task-name">${task.content}</div>`;
+
+						if (task.description) {
+							taskContent += `<div class="task-desc">${task.description}</div>`;
+						}
+
+						if (task.due) {
+							taskContent += `<span class="task-due">Due: ${task.due.string}</span>`;
+						}
+
+						taskElement.innerHTML = taskContent;
 						pendingDiv.appendChild(taskElement);
 					}
 				});
