@@ -12,25 +12,44 @@ exports.handler = async function () {
 	}
 
 	try {
-		// Fetch tasks from Todoist
-		const response = await fetch(`https://api.todoist.com/rest/v2/tasks?project_id=${PROJECT_ID}`, {
-			headers: {
-				"Authorization": `Bearer ${API_KEY}`
-			}
+		// Fetch active tasks
+		const activeTasksResponse = await fetch(`https://api.todoist.com/rest/v2/tasks?project_id=${PROJECT_ID}`, {
+			headers: { "Authorization": `Bearer ${API_KEY}` }
 		});
 
-		if (!response.ok) {
+		if (!activeTasksResponse.ok) {
 			return {
-				statusCode: response.status,
-				body: JSON.stringify({ error: "Failed to fetch tasks" })
+				statusCode: activeTasksResponse.status,
+				body: JSON.stringify({ error: "Failed to fetch active tasks" })
 			};
 		}
 
-		const tasks = await response.json();
+		const activeTasks = await activeTasksResponse.json();
+
+		// Fetch completed tasks
+		const completedTasksResponse = await fetch(`https://api.todoist.com/sync/v9/completed/get_all?project_id=${PROJECT_ID}`, {
+			headers: { "Authorization": `Bearer ${API_KEY}` }
+		});
+
+		if (!completedTasksResponse.ok) {
+			return {
+				statusCode: completedTasksResponse.status,
+				body: JSON.stringify({ error: "Failed to fetch completed tasks" })
+			};
+		}
+
+		const completedData = await completedTasksResponse.json();
+		const completedTasks = completedData.items.map(task => ({
+			content: task.content,
+			completed: true
+		}));
+
+		// Combine active and completed tasks into one response
+		const allTasks = [...activeTasks, ...completedTasks];
 
 		return {
 			statusCode: 200,
-			body: JSON.stringify(tasks)
+			body: JSON.stringify(allTasks)
 		};
 
 	} catch (error) {
