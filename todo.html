@@ -5,22 +5,55 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Landmark Church Tasks</title>
 	<style>
+		/* General Styles */
 		body {
 			font-family: Arial, sans-serif;
 			background-color: #f5f5f5;
-			max-width: 600px;
+			max-width: 700px;
 			margin: auto;
 			padding: 20px;
+			line-height: 1.6;
+			color: #333;
 		}
+
 		h1, h2 {
 			text-align: center;
+			margin-bottom: 10px;
 		}
+
+		h2 {
+			border-bottom: 2px solid #ddd;
+			padding-bottom: 5px;
+		}
+
+		/* Blurb Section */
 		.blurb {
 			text-align: center;
-			font-size: 14px;
+			font-size: 16px;
 			margin-bottom: 20px;
-			color: #555;
+			padding: 15px;
+			background: white;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		}
+
+		.email-button {
+			display: inline-block;
+			margin-top: 10px;
+			padding: 10px 15px;
+			background-color: #007BFF;
+			color: white;
+			text-decoration: none;
+			font-size: 14px;
+			border-radius: 5px;
+			transition: background 0.3s;
+		}
+
+		.email-button:hover {
+			background-color: #0056b3;
+		}
+
+		/* Task Cards */
 		.task {
 			background: white;
 			padding: 15px;
@@ -28,28 +61,36 @@
 			border-radius: 5px;
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		}
+
 		.task-name {
-			font-size: 18px;
+			font-size: 20px;
 			font-weight: bold;
+			margin-bottom: 5px;
 		}
+
 		.task-desc {
-			font-size: 14px;
+			font-size: 15px;
 			color: #555;
-			margin-top: 5px;
+			margin-bottom: 10px;
 		}
+
 		.task-due {
-			font-size: 12px;
+			font-size: 13px;
 			color: #888;
 			margin-top: 10px;
 			display: block;
 		}
+
+		/* Completed Tasks */
 		.completed-list {
 			list-style-type: none;
 			padding: 0;
 		}
+
 		.completed-list li {
 			text-decoration: line-through;
 			color: #777;
+			font-size: 16px;
 			padding: 5px 0;
 		}
 	</style>
@@ -57,13 +98,11 @@
 <body>
 	<h1>Landmark Church Tasks</h1>
 
-	<p class="blurb">
-		Thank you for your willingness to help around Landmark Church.
-		If you'd like to take on one of these tasks, contact
-		<a href="mailto:matt@landmarklafayette.com">matt@landmarklafayette.com</a>
-		to make arrangements. As always, we know your time is valuable,
-		and we sincerely appreciate your generosity in giving it.
-	</p>
+	<div class="blurb">
+		<p>We truly appreciate your willingness to help keep Landmark Church running smoothly. Your time and effort make a difference!</p>
+		<p>If you’d like to take on a task, please get in touch.</p>
+		<a href="mailto:matt@landmarklafayette.com" class="email-button">Contact Matt</a>
+	</div>
 
 	<h2>Pending Tasks</h2>
 	<div id="pending"></div>
