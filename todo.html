@@ -3,79 +3,71 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Todoist Public Project View</title>
+	<title>Todoist Tasks</title>
 	<style>
 		body {
 			font-family: Arial, sans-serif;
 			max-width: 600px;
-			margin: 20px auto;
-			padding: 10px;
-			background: #f9f9f9;
+			margin: auto;
+			padding: 20px;
 		}
-		h2 {
+		h1 {
 			text-align: center;
 		}
-		.task-list {
-			list-style: none;
-			padding: 0;
+		h2 {
+			border-bottom: 2px solid #ddd;
+			padding-bottom: 5px;
 		}
 		.task {
-			background: #fff;
 			padding: 10px;
 			margin: 5px 0;
+			border: 1px solid #ddd;
 			border-radius: 5px;
-			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 		}
 		.completed {
+			background-color: #f0f0f0;
 			text-decoration: line-through;
-			color: gray;
 		}
 	</style>
 </head>
 <body>
+	<h1>Todoist Task List</h1>
 
-	<h2>Todoist Project Tasks</h2>
-	<ul id="tasks" class="task-list"></ul>
+	<h2>Pending Tasks</h2>
+	<div id="pending"></div>
+
+	<h2>Completed Tasks</h2>
+	<div id="completed"></div>
 
 	<script>
-		const API_KEY = "1d098e501bc1d1095f00337ba23f7f790fc25188";
-		const PROJECT_ID = "6XV749X675MpCwrQ";
+		fetch("https://landmarklafayette.com/.netlify/functions/getTasks")
+			.then(response => response.json())
+			.then(tasks => {
+				// Sort tasks by date added (most recent first)
+				tasks.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-		async function fetchTasks() {
-			try {
-				// Fetch active tasks
-				let response = await fetch(`https://api.todoist.com/rest/v2/tasks?project_id=${PROJECT_ID}`, {
-					headers: { "Authorization": `Bearer ${API_KEY}` }
+				const pendingDiv = document.getElementById("pending");
+				const completedDiv = document.getElementById("completed");
+
+				tasks.forEach(task => {
+					const taskElement = document.createElement("div");
+					taskElement.classList.add("task");
+
+					let dueDate = task.due ? `Due: ${task.due.string}` : "No due date";
+					taskElement.innerHTML = `<strong>${task.content}</strong><br>${task.description || ''}<br><small>${dueDate}</small>`;
+
+					if (task.completed) {
+						taskElement.classList.add("completed");
+						completedDiv.appendChild(taskElement);
+					} else {
+						pendingDiv.appendChild(taskElement);
+					}
 				});
-				let activeTasks = await response.json();
-
-				// Fetch completed tasks
-				response = await fetch(`https://api.todoist.com/sync/v9/completed/get_all?project_id=${PROJECT_ID}`, {
-					headers: { "Authorization": `Bearer ${API_KEY}` }
-				});
-				let completedTasks = (await response.json()).items;
-
-				displayTasks(activeTasks, completedTasks);
-			} catch (error) {
+			})
+			.catch(error => {
 				console.error("Error fetching tasks:", error);
-				document.getElementById("tasks").innerHTML = "<li>Error loading tasks</li>";
-			}
-		}
-
-		function displayTasks(activeTasks, completedTasks) {
-			const taskList = document.getElementById("tasks");
-			taskList.innerHTML = "";
-
-			[...activeTasks, ...completedTasks].forEach(task => {
-				let li = document.createElement("li");
-				li.className = "task" + (task.completed ? " completed" : "");
-				li.textContent = task.content;
-				taskList.appendChild(li);
+				document.body.innerHTML = "<p>Failed to load tasks.</p>";
 			});
-		}
-
-		fetchTasks();
 	</script>
-
 </body>
 </html>
