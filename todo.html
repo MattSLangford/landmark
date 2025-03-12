@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Todoist Public Project View</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			max-width: 600px;
+			margin: 20px auto;
+			padding: 10px;
+			background: #f9f9f9;
+		}
+		h2 {
+			text-align: center;
+		}
+		.task-list {
+			list-style: none;
+			padding: 0;
+		}
+		.task {
+			background: #fff;
+			padding: 10px;
+			margin: 5px 0;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		}
+		.completed {
+			text-decoration: line-through;
+			color: gray;
+		}
+	</style>
+</head>
+<body>
+
+	<h2>Todoist Project Tasks</h2>
+	<ul id="tasks" class="task-list"></ul>
+
+	<script>
+		const API_KEY = "1d098e501bc1d1095f00337ba23f7f790fc25188";
+		const PROJECT_ID = "6XV749X675MpCwrQ";
+
+		async function fetchTasks() {
+			try {
+				// Fetch active tasks
+				let response = await fetch(`https://api.todoist.com/rest/v2/tasks?project_id=${PROJECT_ID}`, {
+					headers: { "Authorization": `Bearer ${API_KEY}` }
+				});
+				let activeTasks = await response.json();
+
+				// Fetch completed tasks
+				response = await fetch(`https://api.todoist.com/sync/v9/completed/get_all?project_id=${PROJECT_ID}`, {
+					headers: { "Authorization": `Bearer ${API_KEY}` }
+				});
+				let completedTasks = (await response.json()).items;
+
+				displayTasks(activeTasks, completedTasks);
+			} catch (error) {
+				console.error("Error fetching tasks:", error);
+				document.getElementById("tasks").innerHTML = "<li>Error loading tasks</li>";
+			}
+		}
+
+		function displayTasks(activeTasks, completedTasks) {
+			const taskList = document.getElementById("tasks");
+			taskList.innerHTML = "";
+
+			[...activeTasks, ...completedTasks].forEach(task => {
+				let li = document.createElement("li");
+				li.className = "task" + (task.completed ? " completed" : "");
+				li.textContent = task.content;
+				taskList.appendChild(li);
+			});
+		}
+
+		fetchTasks();
+	</script>
+
+</body>
+</html>
