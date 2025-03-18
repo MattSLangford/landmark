@@ -46,10 +46,17 @@
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		}
 
+		.task-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
 		.task-name {
 			font-size: 20px;
 			font-weight: bold;
 			margin-bottom: 5px;
+			flex-grow: 1;
 		}
 
 		.task-desc {
@@ -66,8 +73,6 @@
 		}
 
 		.task-button {
-			display: inline-block;
-			margin-top: 10px;
 			padding: 8px 12px;
 			background-color: #007BFF;
 			color: white;
@@ -77,6 +82,8 @@
 			transition: background 0.3s;
 			border: none;
 			cursor: pointer;
+			white-space: nowrap;
+			margin-left: 10px;
 		}
 
 		.task-button:hover {
@@ -131,15 +138,9 @@
 						const taskElement = document.createElement("div");
 						taskElement.classList.add("task");
 
-						let taskContent = `<div class="task-name">${task.content}</div>`;
-
-						if (task.description) {
-							taskContent += `<div class="task-desc">${task.description}</div>`;
-						}
-
-						if (task.due) {
-							taskContent += `<span class="task-due">Due: ${task.due.string}</span>`;
-						}
+						// Task header (name + button)
+						let taskContent = `<div class="task-header">
+												<div class="task-name">${task.content}</div>`;
 
 						// "I'll do this!" Button
 						const emailSubject = encodeURIComponent(`I'll do: ${task.content}`);
@@ -148,7 +149,15 @@
 						);
 						const mailtoLink = `mailto:matt@landmarklafayette.com?subject=${emailSubject}&body=${emailBody}`;
 
-						taskContent += `<a href="${mailtoLink}" class="task-button">I'll do this!</a>`;
+						taskContent += `<a href="${mailtoLink}" class="task-button">I'll do this!</a></div>`; // Close .task-header div
+
+						if (task.description) {
+							taskContent += `<div class="task-desc">${task.description}</div>`;
+						}
+
+						if (task.due) {
+							taskContent += `<span class="task-due">Due: ${task.due.string}</span>`;
+						}
 
 						taskElement.innerHTML = taskContent;
 						pendingDiv.appendChild(taskElement);
