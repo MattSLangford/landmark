@@ -34,22 +34,7 @@
 			background: white;
 			border-radius: 5px;
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		}
-
-		.email-button {
-			display: inline-block;
-			margin-top: 10px;
-			padding: 10px 15px;
-			background-color: #007BFF;
-			color: white;
-			text-decoration: none;
-			font-size: 14px;
-			border-radius: 5px;
-			transition: background 0.3s;
-		}
-
-		.email-button:hover {
-			background-color: #0056b3;
+			text-align: center;
 		}
 
 		/* Task Cards */
@@ -80,6 +65,24 @@
 			display: block;
 		}
 
+		.task-button {
+			display: inline-block;
+			margin-top: 10px;
+			padding: 8px 12px;
+			background-color: #007BFF;
+			color: white;
+			text-decoration: none;
+			font-size: 14px;
+			border-radius: 5px;
+			transition: background 0.3s;
+			border: none;
+			cursor: pointer;
+		}
+
+		.task-button:hover {
+			background-color: #0056b3;
+		}
+
 		/* Completed Tasks */
 		.completed-list {
 			list-style-type: none;
@@ -98,8 +101,7 @@
 	<h1>Landmark Church Tasks</h1>
 
 	<div class="blurb">
-		<p>We truly appreciate your willingness to help keep Landmark Church running smoothly. Your time and effort make a difference! The following is a list of tasks where we could use your help in the upcoming days. If you’d like to take on a task, please get in touch so we can work through the details with you.</p>
-		<a href="mailto:matt@landmarklafayette.com" class="email-button">Contact Pastor Matt</a>
+		<p>We truly appreciate your willingness to help keep Landmark Church running smoothly. Your time and effort make a difference! Below is a list of tasks where we could use your help. Click "I'll do this!" to let us know you're available.</p>
 	</div>
 
 	<h2>Incomplete Tasks</h2>
@@ -138,6 +140,15 @@
 						if (task.due) {
 							taskContent += `<span class="task-due">Due: ${task.due.string}</span>`;
 						}
+
+						// "I'll do this!" Button
+						const emailSubject = encodeURIComponent(`I'll do: ${task.content}`);
+						const emailBody = encodeURIComponent(
+							`Hello Pastor Matt,\n\nI'd like to take on the following task:\n\nTask: ${task.content}\n\nMy Name:\n\nI plan to complete this by:\n\nThanks!`
+						);
+						const mailtoLink = `mailto:matt@landmarklafayette.com?subject=${emailSubject}&body=${emailBody}`;
+
+						taskContent += `<a href="${mailtoLink}" class="task-button">I'll do this!</a>`;
 
 						taskElement.innerHTML = taskContent;
 						pendingDiv.appendChild(taskElement);
