@@ -1,39 +1,203 @@
----
-title: Landmark Church | Visit
-description: Prepare for your visit to Landmark Church.
-image: /assets/visit.jpg
----
-{% include header.html %}
-    <div class="hero">
-        <img src="/assets/visit.jpg" alt="Landmark Church Information">
-    </div>
-    <div class="content">
-    <h2>Visit Landmark Church</h2>
-        <p>If you are considering visiting Landmark Church, we want to make it as easy and comfortable as possible for you to do so. Here is the most important information to know to set your mind at ease when visiting.</p>
-        <h3>How to Get to Landmark</h3>
-        <p>Landmark Church is located at <strong>1610 W Willow St in Lafayette, LA</strong> (some GPS devices will label the city as Scott). The church is visible from Interstate 10 and accessible via both the Ambassador Caffery Parkway exit and the University exit.</p>
-        <a href="https://landmarkchurch.churchcenter.com/people/forms/400183" data-open-in-church-center-modal="true" class="button"><button>Plan Your Visit →</button></a>
-        <h3>Weekly Schedule</h3>
-        <ul>
-        <li><strong>Worship Service</strong> Sundays at 10am</li>
-        <li><strong>Service for Kids</strong> Sundays at 10am</li>
-        <li><strong>Celebrate Recovery</strong> Thursdays at 6:30pm</li>
-        </ul>
-        <a href="/calendar" class="button"><button>Full Event Schedule →</button></a>
-        <h3>Frequently Asked Questions</h3>
-        <h4>What time do things start?</h4>
-        <p>Our Sunday Worship service starts promptly at 10am. We encourage people to arrive a few minutes early to drop kids off at childcare, use the restroom, and find a seat. We do have volunteers ready to assist in any way, but we promise not to pressure you into anything.</p>
-        <h4>What do I wear?</h4>
-        <p>Whatever you want! Most people dress casually, and you'll rarely see someone in a suit. We want you to be comfortable, so dress accordingly. It's even ok to wear your Saints jersey if you'd like.</p>
-        <h4>How long is service?</h4>
-        <p>Service time is typically just over an hour and includes worship music and a message. You're welcome to stay a few minutes afterwards to meet the people of Landmark.</p>
-        <h4>Is there a place for my kids?</h4>
-        <p>Yes! Kids up to age 11 have their own class every Sunday during service. When you arrive, you can walk with them to the check-in station where a volunteer will collect all relevant information and make sure both you and your children are comfortable.</p>
-        <h4>Will I be recognized or embarrassed?</h4>
-        <p>No. We will not ask guests to stand, read names from the pulpit, or otherwise put you on the spot.</p>
-        <h4>Will I have to stand and raise my hands?</h4>
-        <p>That's a personal choice. Many do during our worship set, but we don't pressure anyone to do so. We want you to experience God in a way that's comfortable for you.</p>
-        <h4>Will I be expected to give in the offering?</h4>
-        <p>We do take an offering. We do not ask first time guests to give.</p>
-    </div>
-{% include footer.html %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visit Us – Landmark Church</title>
+  <meta name="description" content="Plan your visit: location, service times, parking, and what to expect at Landmark Church.">
+  <link rel="canonical" href="https://landmarklafayette.com/visit.html">
+
+  <!-- Smart App Banners -->
+  <meta name="apple-itunes-app" content="app-id=1357742931">
+  <meta name="google-play-app" content="app-id=com.ministrycentered.churchcenter">
+
+  <!-- Open Graph & Twitter -->
+  <meta property="og:title" content="Visit Landmark Church">
+  <meta property="og:description" content="Find us at 1610 W Willow St in Lafayette, LA — service times, map, parking & more.">
+  <meta property="og:url" content="https://landmarklafayette.com/visit.html">
+  <meta property="og:image" content="https://landmarklafayette.com/images/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Theme Colors -->
+  <meta name="theme-color" content="#20343F">
+  <meta name="msapplication-TileColor" content="#20343F">
+
+  <!-- Favicons & Touch Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <!-- Android PWA Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- ChurchCenter Modal Script -->
+  <script src="https://js.churchcenter.com/modal/v1"></script>
+
+  <!-- FontAwesome v6.7.2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <style>
+	:root {
+	  --brand:   #F0A830;
+	  --text:    #20343F;
+	  --bg:      #f9f9f9;
+	  --accent:  #fff;
+	}
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	body {
+	  background: var(--bg);
+	  color: var(--text);
+	  font-family: system-ui, sans-serif;
+	  line-height: 1.6;
+	  letter-spacing: 0.5px;
+	  padding: 20px;
+	}
+	a { color: var(--brand); text-decoration: none; }
+	a:hover { text-decoration: underline; }
+
+	.skip-link {
+	  position: absolute; top: -40px; left: 0;
+	  background: var(--text); color: #fff;
+	  padding: 8px; z-index: 1000; text-decoration: none;
+	}
+	.skip-link:focus { top: 0; }
+
+	.go-home {
+	  display: inline-block;
+	  margin-bottom: 24px;
+	  font-size: 0.9rem;
+	  color: var(--text);
+	}
+
+	main {
+	  max-width: 800px;
+	  margin: 0 auto;
+	}
+	h1 {
+		margin-bottom: 32px;
+	}
+	h2 {
+	  font-size: 1.8rem;
+	  margin-bottom: 16px;
+	  color: var(--brand);
+	}
+	p { margin-bottom: 16px; }
+	ul { margin: 0 0 32px; padding-left: 1.5em; list-style: disc outside; }
+	iframe.map-embed {
+	  width: 100%;
+	  height: 250px;
+	  border: 0;
+	  margin-bottom: 16px;
+	}
+
+	.buttons {
+	  margin: 16px 0 32px;
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 12px;
+	}
+	.btn {
+	  display: inline-block;
+	  padding: 12px 20px;
+	  background: var(--brand);
+	  color: var(--accent);
+	  text-decoration: none;
+	  border-radius: 4px;
+	  font-weight: 600;
+	}
+	.btn:hover,
+	.btn:focus { background: #d89e28; outline: 3px solid var(--text); }
+
+	.service-grid {
+	  display: grid;
+	  grid-template-columns: repeat(2, 1fr);
+	  gap: 24px;
+	  margin-bottom: 32px;
+	}
+	.service {
+	  background: #fff;
+	  padding: 16px;
+	  border-radius: 8px;
+	  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	}
+	.service h3 {
+	  font-size: 1.3rem;
+	  margin: 0 0 12px;
+	  color: var(--brand);
+	}
+	.service ul { margin: 0; padding-left: 1.5em; list-style: disc outside; }
+	.service ul li { margin-bottom: 8px; }
+
+	@media (max-width: 599px) {
+	  .service-grid { grid-template-columns: 1fr; }
+	}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <a href="/" class="go-home">← Go Home</a>
+
+  <main id="main">
+	<h1>Visit Us</h1>
+	
+	<p>We can’t wait to welcome you to Landmark Church! Whether you’re visiting for the first time or you’ve been part of our family for years, you’ll find a warm, encouraging community ready to worship and grow together. Join us Sundays at 10 am for heartfelt praise, passionate worship, and a life-changing message. Come as you are—there’s a place here for everyone, and we’re saving a seat just for you!</p>
+	<section>
+	  <h2>Our Location</h2>
+	  <iframe
+		class="map-embed"
+		src="https://www.google.com/maps?q=1610+West+Willow+Street+Lafayette+LA&output=embed"
+		loading="lazy"
+		allowfullscreen>
+	  </iframe>
+	  <p>1610 West Willow Street, Lafayette, LA 70583<br>
+	  (Some GPS apps list us as Scott, LA.)</p>
+	  <p>Easy access from I-10 via Ambassador Caffery Parkway or University exit.</p>
+	  <div class="buttons">
+		<a href="https://maps.apple.com/?q=1610%20West%20Willow%20Street%2C%20Lafayette%2C%20LA%2070583" class="btn">Apple Maps</a>
+		<a href="https://www.google.com/maps/dir/?api=1&destination=1610+West+Willow+Street+Lafayette+LA+70583" class="btn">Google Maps</a>
+		<a href="https://maps.waze.com/ul?ll=30.2142,-92.0281&navigate=yes" class="btn">Waze</a>
+	  </div>
+	</section>
+
+	<section class="service-grid">
+	  <div class="service">
+		<h3>Worship Service</h3>
+		<ul>
+		  <li><strong>When:</strong> Sundays at 10 am</li>
+		  <li><strong>Childcare:</strong> Available for children under 12</li>
+		  <li><strong>Coffee:</strong> Served before the service</li>
+		  <li><strong>Duration:</strong> ~1 hour of worship & a message</li>
+		  <li><strong>Parking & Drop-off:</strong> Front & side; east entrance drop-off</li>
+		</ul>
+	  </div>
+	  <div class="service">
+		<h3>Celebrate Recovery</h3>
+		<ul>
+		  <li><strong>When:</strong> Thursdays at 6:30 pm (Gym)</li>
+		  <li><strong>Childcare:</strong> Not provided</li>
+		  <li><strong>Duration:</strong> ~1 hour of worship & testimony</li>
+		  <li><strong>Parking & Drop-off:</strong> Same as Sunday</li>
+		  <li><strong>Dress Code:</strong> Casual; no obligation to give</li>
+		</ul>
+	  </div>
+	</section>
+
+	<section>
+	  <h2>What to Expect</h2>
+	  <ul>
+		<li>Free parking & convenient drop-off</li>
+		<li>Guest Wi-Fi: Network “LandmarkGuest” (no password)</li>
+		<li>Wheelchair ramps & elevator access</li>
+		<li>Coffee bar in the lobby before service</li>
+		<li>Friendly greeters ready to help</li>
+	  </ul>
+	  <p>Questions? <a href="https://landmarkchurch.churchcenter.com/people/forms/13671?open-in-church-center-modal=true" data-church-center-modal>Contact Us</a>.</p>
+	</section>
+  </main>
+</body>
+</html>

@@ -1,26 +1,288 @@
----
-title: Landmark Church | Lafayette, Louisiana
-description: Landmark Church is a community focused church in Lafayette, Louisiana featuring Celebrate Recovery and Life Groups.
-image: /assets/hero.jpg
----
-{% include header.html %}
-	<div class="hero">
-		<img src="/assets/pastor.jpeg" alt="Pastor Rick Langford speaking at Landmark Church in Lafayette, LA">
-		<h3 class="service_time">Sunday Worship at 10am</h3>
-		<h2>Discover Jesus. Know God.<br  />Live as Committed Disciples of Christ.</h2>
-	</div>
-	<div class="content">
-		<div class="pods">
-			<div class="pod">
-				<h3>Need Prayer?</h3>
-				<p>Our staff and members would love to pray for you. Let us know how we can today.</p>
-				<a href="https://landmarkchurch.churchcenter.com/people/forms/533" data-open-in-church-center-modal="true" class="button"><button>Prayer Request</button></a>
-			</div>
-			<div class="pod">
-				<h3>Celebrate Recovery</h3>
-				<p>Struggling with something? Really, who isn't? Join us for Celebrate Recovery every Thursday.</p>
-				<a href="/celebrate-recovery.html" class="button"><button>CR Info</button></a>
-			</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Landmark Church</title>
+  <meta name="description" content="Landmark Church in Lafayette, LA. Discover Jesus. Worship Services every Sunday at 10am. Celebrate Recovery on Thursdays at 6:30pm.">
+  <link rel="canonical" href="https://landmarklafayette.com/">
+
+  <!-- Smart App Banners -->
+  <meta name="apple-itunes-app" content="app-id=1357742931">
+  <meta name="google-play-app" content="app-id=com.ministrycentered.churchcenter">
+
+  <!-- Social Meta Tags -->
+  <meta property="og:title"       content="Landmark Church – Discover Jesus.">
+  <meta property="og:description" content="Worship Sundays at 10am • Celebrate Recovery Thursdays at 6:30pm • Join us in Lafayette or online.">
+  <meta property="og:url"         content="https://landmarklafayette.com/">
+  <meta property="og:image"       content="https://landmarklafayette.com/images/og.png">
+  <meta name="twitter:card"       content="summary_large_image">
+
+  <!-- Theme Colors -->
+  <meta name="theme-color" content="#20343F">
+  <meta name="msapplication-TileColor" content="#20343F">
+
+  <!-- FAVICONS & TOUCH ICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <!-- ANDROID/CHROME PWA ICONS -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+
+  <!-- WEB APP MANIFEST -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- ChurchCenter modal script -->
+  <script src="https://js.churchcenter.com/modal/v1"></script>
+
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <style>
+	:root {
+	  --brand:   #F0A830;
+	  --text:    #20343F;
+	  --bg:      #f9f9f9;
+	  --accent:  #fff;
+	  --focus:   #20343F;
+	}
+	* { margin:0; padding:0; box-sizing:border-box; }
+	html, body { height:100%; }
+	body {
+	  display:flex;
+	  flex-direction:column;
+	  min-height:100vh;
+	  background:var(--bg);
+	  color:var(--text);
+	  font-family:system-ui, sans-serif;
+	  text-align:center;
+	}
+	.skip-link {
+	  position:absolute; top:-40px; left:0;
+	  background:var(--text); color:var(--accent);
+	  padding:8px; z-index:1000; text-decoration:none;
+	}
+	.skip-link:focus { top:0; }
+
+	.wrapper {
+	  flex:1;
+	  display:flex;
+	  align-items:center;
+	  justify-content:center;
+	  padding:20px;
+	}
+	.container {
+	  width:100%;
+	  max-width:360px;
+	  margin:0 auto;
+	}
+	@media(min-width:600px) {
+	  .container { max-width:600px; }
+	}
+
+	.logo { margin-bottom:32px; }
+	.logo img { width:100%; max-width:250px; height:auto; }
+
+	.discover {
+	  font-size:2rem;
+	  font-weight:800;
+	  color:var(--brand);
+	  text-transform:uppercase;
+	  letter-spacing:2px;
+	  margin-bottom:32px;
+	}
+
+	.schedule {
+	  margin-bottom:48px;
+	  display:grid;
+	  grid-template-columns:1fr;
+	  gap:24px;
+	}
+	@media(min-width:600px) {
+	  .schedule {
+		grid-template-columns:repeat(2,1fr);
+		gap:80px;
+	  }
+	}
+	.schedule-item { text-align:center; }
+	.event-name {
+	  font-size:1.3rem;
+	  font-weight:700;
+	  text-transform:uppercase;
+	  letter-spacing:1px;
+	  color:var(--text);
+	}
+	.event-time {
+	  margin-top:6px;
+	  font-size:1.1rem;
+	  font-weight:600;
+	  color:var(--brand);
+	}
+
+	.menu-btn {
+	  display:inline-block;
+	  padding:14px 28px;
+	  font-size:1rem;
+	  font-weight:600;
+	  color:var(--accent);
+	  background:var(--brand);
+	  border:none;
+	  border-radius:999px;
+	  cursor:pointer;
+	  transition:background .2s;
+	  margin-bottom:16px;
+	  white-space:nowrap;
+	  text-decoration:none;
+	}
+	.menu-btn:hover,
+	.menu-btn:focus {
+	  background:#d89e28;
+	  outline:3px solid var(--focus);
+	}
+	@media(max-width:599px) {
+	  .menu-btn {
+		position:fixed;
+		bottom:72px;
+		left:50%;
+		transform:translateX(-50%);
+		z-index:100;
+	  }
+	}
+
+	.menu {
+	  position:fixed; top:0; left:0;
+	  width:100vw; height:100vh;
+	  background:var(--accent);
+	  display:flex; flex-direction:column;
+	  align-items:center; justify-content:center;
+	  transform:translateY(-100%);
+	  transition:transform .3s ease-in-out;
+	  z-index:999;
+	}
+	.menu.open { transform:translateY(0); }
+	.menu[aria-hidden="true"] { visibility:hidden; }
+	.menu[aria-hidden="false"]{ visibility:visible; }
+	.menu .close {
+	  position:absolute; top:20px; right:20px;
+	  font-size:2rem; background:none; border:none;
+	  cursor:pointer; color:var(--text);
+	}
+	.menu ul {
+	  list-style:none; margin-top:40px;
+	}
+	.menu li { margin:24px 0; }
+	.menu a {
+	  display:flex; align-items:center; gap:12px;
+	  font-size:1.4rem; color:var(--text);
+	  text-decoration:none; white-space:nowrap;
+	}
+	.menu a i {
+	  flex:0 0 1.5em; text-align:center;
+	  font-size:1.5rem; color:var(--brand);
+	}
+	.menu a:focus { outline:3px solid var(--focus); }
+
+	.social-menu {
+	  display:flex; gap:24px; margin-top:48px;
+	}
+	.social-menu a {
+	  font-size:1.5rem; color:var(--brand);
+	  text-decoration:none;
+	}
+	.social-menu a:hover,
+	.social-menu a:focus {
+	  color:#d89e28;
+	}
+
+	.footer {
+	  font-size:0.75rem;
+	  color:#777;
+	  padding:12px 0;
+	  text-align:center;
+	}
+	.footer a {
+	  color:#777; text-decoration:none; margin:0 8px;
+	}
+	.footer a:hover,
+	.footer a:focus { text-decoration:underline; }
+	.footer .address-footer {
+	  display:block; margin-top:8px;
+	}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div class="wrapper" id="main">
+	<div class="container">
+	  <div class="logo">
+		<img src="/images/logo.svg" alt="Landmark Church logo">
+	  </div>
+
+	  <div class="discover">Discover Jesus.</div>
+
+	  <div class="schedule">
+		<div class="schedule-item">
+		  <div class="event-name">Worship Service</div>
+		  <div class="event-time">Sundays at 10 am</div>
 		</div>
+		<div class="schedule-item">
+		  <div class="event-name">Celebrate Recovery</div>
+		  <div class="event-time">Thursdays at 6:30 pm</div>
+		</div>
+	  </div>
+
+	  <button id="menuBtn" class="menu-btn"
+			  aria-controls="fullMenu"
+			  aria-expanded="false"
+			  aria-label="Open navigation menu">
+		Menu
+	  </button>
 	</div>
-{% include footer.html %}
+  </div>
+
+  <div id="fullMenu" class="menu" role="dialog" aria-modal="true" aria-hidden="true">
+	<button class="close" id="closeBtn" aria-label="Close navigation menu">&times;</button>
+	<ul role="navigation" aria-label="Main menu">
+	  <li><a href="/visit.html"><i class="fas fa-map-marker-alt"></i>Visit Landmark</a></li>
+	  <li><a href="https://landmarkchurch.churchcenter.com/channels/5760"><i class="fas fa-video"></i>Watch Services</a></li>
+	  <li><a href="https://landmarkchurch.churchcenter.com/giving?open-in-church-center-modal=true" data-church-center-modal><i class="fas fa-hand-holding-dollar"></i>Make a Donation</a></li>
+	  <li><a href="/about.html"><i class="fas fa-info-circle"></i>About Landmark</a></li>
+	  <li><a href="/connect.html"><i class="fas fa-users"></i>Ways to Connect</a></li>
+	  <li><a href="https://landmarkchurch.churchcenter.com/people/forms/533?open-in-church-center-modal=true" data-church-center-modal><i class="fas fa-praying-hands"></i>Request Prayer</a></li>
+	  <li><a href="/recovery.html"><i class="fas fa-hand-holding-heart"></i>Celebrate Recovery</a></li>
+	  <li><a href="https://landmarkchurch.churchcenter.com/people/forms/13671?open-in-church-center-modal=true" data-church-center-modal><i class="fas fa-envelope"></i>Contact Us</a></li>
+	</ul>
+	<div class="social-menu" aria-label="Follow us">
+	  <a href="https://facebook.com/landmarklafayette" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+	  <a href="https://instagram.com/landmarkchurch" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+	  <a href="https://podcasts.apple.com/us/podcast/landmark-sermons/id1768287177" aria-label="Apple Podcasts"><i class="fas fa-podcast"></i></a>
+	  <a href="https://open.spotify.com/show/2xEg5C8VG8w658Nfz1Tm1j" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+	</div>
+  </div>
+
+  <div class="footer">
+	<a href="/privacy.html">Privacy Policy</a>•
+	<a href="https://landmarkchurch.churchcenter.com/people/forms/13671?open-in-church-center-modal=true" data-church-center-modal>Contact</a>
+	<span class="address-footer">1610 W Willow St, Lafayette, LA 70583</span>
+  </div>
+
+  <script>
+	const menuBtn = document.getElementById('menuBtn');
+	const menu    = document.getElementById('fullMenu');
+	const close   = document.getElementById('closeBtn');
+
+	menuBtn.addEventListener('click', () => {
+	  const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+	  menuBtn.setAttribute('aria-expanded', String(!isOpen));
+	  menu.setAttribute('aria-hidden', String(isOpen));
+	  menu.classList.toggle('open');
+	  if (!isOpen) close.focus(); else menuBtn.focus();
+	});
+	close.addEventListener('click', () => menuBtn.click());
+  </script>
+</body>
+</html>
