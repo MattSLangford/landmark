@@ -62,31 +62,31 @@
 	}
 	
 	.discover {
-	  /* keep your existing typography */
 	  position: relative;
 	  display: inline-block;
+	  /* keep your existing typography */
 	  font-size: 2rem;
 	  font-weight: 800;
-	  color: var(--brand);
 	  text-transform: uppercase;
 	  letter-spacing: 2px;
 	  margin-bottom: 32px;
 	
-	  /* new glow animation */
-	  animation: glow 8s ease-in-out infinite;
+	  /* subtle shimmer */
+	  background: linear-gradient(
+		90deg,
+		var(--brand) 48%,
+		rgba(255, 255, 255, 0.25) 50%,
+		var(--brand) 52%
+	  );
+	  background-size: 200% 100%;
+	  -webkit-background-clip: text;
+	  -webkit-text-fill-color: transparent;
+	  animation: shimmer 8s linear infinite;
 	}
 	
-	@keyframes glow {
-	  0%, 100% {
-		filter: brightness(1);
-		text-shadow: none;
-	  }
-	  50% {
-		filter: brightness(1.1);
-		text-shadow:
-		  0 0 4px rgba(240,168,48,0.3), 
-		  0 0 8px rgba(240,168,48,0.2);
-	  }
+	@keyframes shimmer {
+	  0%   { background-position: -100% 0; }
+	  100% { background-position: 100% 0; }
 	}
 	.skip-link {
 	  position:absolute; top:-40px; left:0;
