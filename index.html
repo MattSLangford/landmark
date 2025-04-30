@@ -60,6 +60,34 @@
 	  font-family:system-ui, sans-serif;
 	  text-align:center;
 	}
+	
+	.discover {
+	  /* keep your existing typography */
+	  position: relative;
+	  display: inline-block;
+	  font-size: 2rem;
+	  font-weight: 800;
+	  color: var(--brand);
+	  text-transform: uppercase;
+	  letter-spacing: 2px;
+	  margin-bottom: 32px;
+	
+	  /* new glow animation */
+	  animation: glow 8s ease-in-out infinite;
+	}
+	
+	@keyframes glow {
+	  0%, 100% {
+		filter: brightness(1);
+		text-shadow: none;
+	  }
+	  50% {
+		filter: brightness(1.1);
+		text-shadow:
+		  0 0 4px rgba(240,168,48,0.3), 
+		  0 0 8px rgba(240,168,48,0.2);
+	  }
+	}
 	.skip-link {
 	  position:absolute; top:-40px; left:0;
 	  background:var(--text); color:var(--accent);
