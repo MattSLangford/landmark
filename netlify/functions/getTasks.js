@@ -1,61 +1,44 @@
-exports.handler = async function () {
-	const fetch = require("node-fetch");
+// netlify/functions/getTasks.js
+const fetch = require('node-fetch');
 
-	const API_KEY = process.env.TODOIST_API_KEY;
-	const PROJECT_ID = process.env.TODOIST_PROJECT_ID;
+exports.handler = async () => {
+  // 1) Sign in to Godspeed to get a token
+  const signinRes = await fetch("https://api.godspeedapp.com/sessions/sign_in", {
+	method:  "POST",
+	headers: { "Content-Type": "application/json" },
+	body:    JSON.stringify({
+	  email:    process.env.GODSPEED_EMAIL,
+	  password: process.env.GODSPEED_PASSWORD
+	})
+  });
+  if (!signinRes.ok) {
+	return { statusCode: signinRes.status, body: "Godspeed sign-in failed" };
+  }
+  const { token } = await signinRes.json(); 
+  // --> Use your email+password to sign in and get an access token  [oai_citation:0‡godspeedapp.com](https://godspeedapp.com/guides/api?utm_source=chatgpt.com)
 
-	if (!API_KEY || !PROJECT_ID) {
-		return {
-			statusCode: 500,
-			body: JSON.stringify({ error: "Missing API key or project ID" })
-		};
-	}
+  // 2) Fetch tasks with that token
+  const tasksRes = await fetch("https://api.godspeedapp.com/tasks", {
+	headers: { Authorization: `Bearer ${token}` }
+  });
+  if (!tasksRes.ok) {
+	return { statusCode: tasksRes.status, body: "Error fetching tasks" };
+  }
+  const godspeedTasks = await tasksRes.json();
 
-	try {
-		// Fetch active tasks
-		const activeTasksResponse = await fetch(`https://api.todoist.com/rest/v2/tasks?project_id=${PROJECT_ID}`, {
-			headers: { "Authorization": `Bearer ${API_KEY}` }
-		});
+  // 3) Massage into your front-end shape
+  const tasks = godspeedTasks
+	// .filter(t => t.list_id === process.env.GODSPEED_LIST_ID)
+	.map(t => ({
+	  content:     t.title,
+	  description: t.notes,
+	  due:         t.due_at ? { string: new Date(t.due_at).toLocaleDateString() } : null,
+	  completed:   t.completed,
+	  created_at:  t.created_at
+	}));
 
-		if (!activeTasksResponse.ok) {
-			return {
-				statusCode: activeTasksResponse.status,
-				body: JSON.stringify({ error: "Failed to fetch active tasks" })
-			};
-		}
-
-		const activeTasks = await activeTasksResponse.json();
-
-		// Fetch completed tasks
-		const completedTasksResponse = await fetch(`https://api.todoist.com/sync/v9/completed/get_all?project_id=${PROJECT_ID}`, {
-			headers: { "Authorization": `Bearer ${API_KEY}` }
-		});
-
-		if (!completedTasksResponse.ok) {
-			return {
-				statusCode: completedTasksResponse.status,
-				body: JSON.stringify({ error: "Failed to fetch completed tasks" })
-			};
-		}
-
-		const completedData = await completedTasksResponse.json();
-		const completedTasks = completedData.items.map(task => ({
-			content: task.content,
-			completed: true
-		}));
-
-		// Combine active and completed tasks into one response
-		const allTasks = [...activeTasks, ...completedTasks];
-
-		return {
-			statusCode: 200,
-			body: JSON.stringify(allTasks)
-		};
-
-	} catch (error) {
-		return {
-			statusCode: 500,
-			body: JSON.stringify({ error: "Server error", details: error.message })
-		};
-	}
+  return {
+	statusCode: 200,
+	body:       JSON.stringify(tasks)
+  };
 };
