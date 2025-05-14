@@ -24,23 +24,25 @@ exports.handler = async () => {
 	// 2) Fetch only incomplete tasks from your list
 	const listId = process.env.GODSPEED_LIST_ID;
 	if (!listId) {
-	  throw new Error("Missing GODSPEED_LIST_ID env var");
+	  throw new Error("Missing GODSPEED_LIST_ID environment variable");
 	}
-	const tasksUrl = `https://api.godspeedapp.com/tasks?status=incomplete&list_id=${encodeURIComponent(listId)}`;
-	const tasksRes = await fetch(tasksUrl, {
+	const url = `https://api.godspeedapp.com/tasks?status=incomplete&list_id=${encodeURIComponent(listId)}`;
+	const tasksRes = await fetch(url, {
 	  headers: { Authorization: `Bearer ${token}` }
 	});
 	if (!tasksRes.ok) {
 	  const text = await tasksRes.text();
 	  throw new Error(`Tasks fetch failed (${tasksRes.status}): ${text}`);
 	}
-	const items = await tasksRes.json(); // should be an array directly
 
-	if (!Array.isArray(items)) {
-	  throw new Error(`Unexpected response shape: ${JSON.stringify(items)}`);
+	// 3) Extract the array out of raw.tasks
+	const raw = await tasksRes.json();
+	const items = Array.isArray(raw.tasks) ? raw.tasks : null;
+	if (!items) {
+	  throw new Error(`Unexpected response shape: ${JSON.stringify(raw)}`);
 	}
 
-	// 3) Map into your front-end’s shape
+	// 4) Map into the shape your front-end expects
 	const tasks = items.map(t => ({
 	  content:     t.title,
 	  description: t.notes,
@@ -49,7 +51,7 @@ exports.handler = async () => {
 	  created_at:  t.created_at
 	}));
 
-	// 4) Return to client
+	// 5) Return to client
 	return {
 	  statusCode: 200,
 	  headers:    { "Content-Type": "application/json" },
