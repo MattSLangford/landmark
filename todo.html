@@ -1,200 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Landmark Church Tasks</title>
-	<style>
-		/* General Styles */
-		body {
-			font-family: Arial, sans-serif;
-			background-color: #f5f5f5;
-			max-width: 700px;
-			margin: auto;
-			padding: 20px;
-			line-height: 1.6;
-			color: #333;
-		}
-
-		h1, h2 {
-			text-align: center;
-			margin-bottom: 10px;
-		}
-
-		h2 {
-			border-bottom: 2px solid #ddd;
-			padding-bottom: 5px;
-		}
-
-		/* Blurb Section */
-		.blurb {
-			font-size: 16px;
-			margin-bottom: 20px;
-			padding: 15px;
-			background: white;
-			border-radius: 5px;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-			text-align: center;
-		}
-
-		/* Task Cards */
-		.task {
-			background: white;
-			padding: 15px;
-			margin: 10px 0;
-			border-radius: 5px;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		}
-
-		.task-header {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
-
-		.task-name {
-			font-size: 20px;
-			font-weight: bold;
-			margin-bottom: 5px;
-			flex-grow: 1;
-		}
-
-		.task-desc {
-			font-size: 15px;
-			color: #555;
-			margin-bottom: 10px;
-			max-width: 80%;
-		}
-
-		.task-due {
-			font-size: 13px;
-			color: #888;
-			margin-top: 10px;
-			display: block;
-		}
-
-		.task-button {
-			padding: 8px 12px;
-			background-color: #007BFF;
-			color: white;
-			text-decoration: none;
-			font-size: 14px;
-			border-radius: 5px;
-			transition: background 0.3s;
-			border: none;
-			cursor: pointer;
-			white-space: nowrap;
-			margin-left: 10px;
-		}
-
-		.task-button:hover {
-			background-color: #0056b3;
-		}
-
-		/* Completed Tasks */
-		.completed-list {
-			list-style-type: none;
-			padding: 0;
-		}
-
-		.completed-list li {
-			text-decoration: line-through;
-			color: #777;
-			font-size: 16px;
-			padding: 5px 0;
-		}
-	</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Landmark Church Tasks</title>
+  <style>
+	body {
+	  font-family: Arial, sans-serif;
+	  background-color: #f5f5f5;
+	  max-width: 700px;
+	  margin: auto;
+	  padding: 20px;
+	  line-height: 1.6;
+	  color: #333;
+	}
+	h1, h2 {
+	  text-align: center;
+	  margin-bottom: 10px;
+	}
+	h2 {
+	  border-bottom: 2px solid #ddd;
+	  padding-bottom: 5px;
+	}
+	.blurb {
+	  font-size: 16px;
+	  margin-bottom: 20px;
+	  padding: 15px;
+	  background: white;
+	  border-radius: 5px;
+	  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	  text-align: center;
+	}
+	.task {
+	  background: white;
+	  padding: 15px;
+	  margin: 10px 0;
+	  border-radius: 5px;
+	  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	}
+	.task-header {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	}
+	.task-name {
+	  font-size: 20px;
+	  font-weight: bold;
+	  margin-bottom: 5px;
+	  flex-grow: 1;
+	}
+	.task-desc {
+	  font-size: 15px;
+	  color: #555;
+	  margin-bottom: 10px;
+	}
+	.task-due {
+	  font-size: 13px;
+	  color: #888;
+	  display: block;
+	  margin-top: 10px;
+	}
+	.task-button {
+	  padding: 8px 12px;
+	  background-color: #007BFF;
+	  color: white;
+	  text-decoration: none;
+	  font-size: 14px;
+	  border-radius: 5px;
+	  border: none;
+	  cursor: pointer;
+	  transition: background 0.3s;
+	  white-space: nowrap;
+	  margin-left: 10px;
+	}
+	.task-button:hover {
+	  background-color: #0056b3;
+	}
+  </style>
 </head>
 <body>
-	<h1>Landmark Church Tasks</h1>
+  <h1>Landmark Church Tasks</h1>
 
-	<div class="blurb">
-		<p>We truly appreciate your willingness to help keep Landmark Church running smoothly. Your time and effort make a difference! Below is a list of tasks where we could use your help. Click "I'll do this!" to let us know you're available.</p>
-	</div>
+  <div class="blurb">
+	<p>We truly appreciate your willingness to help keep Landmark Church running smoothly. Your time and effort make a difference! Below is a list of open tasks. Click "I'll do this!" to let us know you're available.</p>
+  </div>
 
-	<h2>Incomplete Tasks</h2>
-	<div id="pending"></div>
+  <h2>Open Tasks</h2>
+  <div id="pending"></div>
 
-	<h2>Completed Tasks</h2>
-	<ul id="completed" class="completed-list"></ul>
+  <script>
+	fetch("/.netlify/functions/getTasks")
+	  .then(async response => {
+		const payload = await response.json();
+		if (!response.ok) {
+		  throw new Error(payload.message || `${response.status} ${response.statusText}`);
+		}
+		return payload;
+	  })
+	  .then(tasks => {
+		// only pendings, sorted newest first
+		const open = tasks
+		  .filter(t => !t.completed)
+		  .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-	<script>
-	  fetch("/.netlify/functions/getTasks")
-		.then(async response => {
-		  const payload = await response.json();
-		  if (!response.ok) {
-			throw new Error(payload.message || `${response.status} ${response.statusText}`);
+		const pendingDiv = document.getElementById("pending");
+		pendingDiv.innerHTML = "";
+
+		open.forEach(task => {
+		  const card = document.createElement("div");
+		  card.classList.add("task");
+
+		  // header
+		  const header = document.createElement("div");
+		  header.classList.add("task-header");
+		  const name = document.createElement("div");
+		  name.classList.add("task-name");
+		  name.textContent = task.content;
+		  header.appendChild(name);
+
+		  const subject = encodeURIComponent(`I'll do: ${task.content}`);
+		  const body = encodeURIComponent(
+			`Hello Pastor Matt,\n\nI'd like to take on the following task:\n\nTask: ${task.content}\n\nMy Name:\n\nI plan to complete this by:\n\nThanks!`
+		  );
+		  const btn = document.createElement("a");
+		  btn.href = `mailto:matt@landmarklafayette.com?subject=${subject}&body=${body}`;
+		  btn.classList.add("task-button");
+		  btn.textContent = "I'll do this!";
+		  header.appendChild(btn);
+
+		  card.appendChild(header);
+
+		  // description
+		  if (task.description) {
+			const desc = document.createElement("div");
+			desc.classList.add("task-desc");
+			desc.textContent = task.description;
+			card.appendChild(desc);
 		  }
-		  return payload;
-		})
-		.then(tasks => {
-		  // Sort by creation date (newest first)
-		  tasks.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-	
-		  const pendingDiv    = document.getElementById("pending");
-		  const completedList = document.getElementById("completed");
-	
-		  // Clear any existing content
-		  pendingDiv.innerHTML    = "";
-		  completedList.innerHTML = "";
-	
-		  tasks.forEach(task => {
-			if (task.completed) {
-			  // Completed: add to the list
-			  const li = document.createElement("li");
-			  li.textContent = task.content;
-			  completedList.appendChild(li);
-			} else {
-			  // Pending: build the card
-			  const taskEl = document.createElement("div");
-			  taskEl.classList.add("task");
-	
-			  // Header (name + button)
-			  const header = document.createElement("div");
-			  header.classList.add("task-header");
-	
-			  const name = document.createElement("div");
-			  name.classList.add("task-name");
-			  name.textContent = task.content;
-			  header.appendChild(name);
-	
-			  const subject = encodeURIComponent(`I'll do: ${task.content}`);
-			  const body    = encodeURIComponent(
-				`Hello Pastor Matt,\n\nI'd like to take on the following task:\n\nTask: ${task.content}\n\nMy Name:\n\nI plan to complete this by:\n\nThanks!`
-			  );
-			  const link = document.createElement("a");
-			  link.href = `mailto:matt@landmarklafayette.com?subject=${subject}&body=${body}`;
-			  link.classList.add("task-button");
-			  link.textContent = "I'll do this!";
-			  header.appendChild(link);
-	
-			  taskEl.appendChild(header);
-	
-			  // Description
-			  if (task.description) {
-				const desc = document.createElement("div");
-				desc.classList.add("task-desc");
-				desc.textContent = task.description;
-				taskEl.appendChild(desc);
-			  }
-	
-			  // Due date
-			  if (task.due && task.due.string) {
-				const due = document.createElement("span");
-				due.classList.add("task-due");
-				due.textContent = `Due: ${task.due.string}`;
-				taskEl.appendChild(due);
-			  }
-	
-			  pendingDiv.appendChild(taskEl);
-			}
-		  });
-		})
-		.catch(error => {
-		  console.error("Load tasks error:", error);
-		  document.body.innerHTML = `<p style="color:red;">Failed to load tasks:<br>${error.message}</p>`;
+
+		  // due date
+		  if (task.due && task.due.string) {
+			const due = document.createElement("span");
+			due.classList.add("task-due");
+			due.textContent = `Due: ${task.due.string}`;
+			card.appendChild(due);
+		  }
+
+		  pendingDiv.appendChild(card);
 		});
-	</script>
-<script defer src="https://tinylytics.app/embed/MvNYAgEzMdyeLySe7xNS/min.js"></script>
+	  })
+	  .catch(error => {
+		console.error("Load tasks error:", error);
+		document.body.innerHTML = `<p style="color:red;">Failed to load tasks:<br>${error.message}</p>`;
+	  });
+  </script>
+
+  <script defer src="https://tinylytics.app/embed/MvNYAgEzMdyeLySe7xNS/min.js"></script>
 </body>
 </html>
