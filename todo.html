@@ -119,56 +119,81 @@
 	<ul id="completed" class="completed-list"></ul>
 
 	<script>
-		fetch("https://landmarklafayette.com/.netlify/functions/getTasks")
-			.then(response => response.json())
-			.then(tasks => {
-				// Sort tasks by date added (most recent first)
-				tasks.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-
-				const pendingDiv = document.getElementById("pending");
-				const completedList = document.getElementById("completed");
-
-				tasks.forEach(task => {
-					if (task.completed) {
-						// Add to completed list (only task name, strikethrough)
-						const completedItem = document.createElement("li");
-						completedItem.textContent = task.content;
-						completedList.appendChild(completedItem);
-					} else {
-						// Create a task card for pending tasks
-						const taskElement = document.createElement("div");
-						taskElement.classList.add("task");
-
-						// Task header (name + button)
-						let taskContent = `<div class="task-header">
-												<div class="task-name">${task.content}</div>`;
-
-						// "I'll do this!" Button
-						const emailSubject = encodeURIComponent(`I'll do: ${task.content}`);
-						const emailBody = encodeURIComponent(
-							`Hello Pastor Matt,\n\nI'd like to take on the following task:\n\nTask: ${task.content}\n\nMy Name:\n\nI plan to complete this by:\n\nThanks!`
-						);
-						const mailtoLink = `mailto:matt@landmarklafayette.com?subject=${emailSubject}&body=${emailBody}`;
-
-						taskContent += `<a href="${mailtoLink}" class="task-button">I'll do this!</a></div>`; // Close .task-header div
-
-						if (task.description) {
-							taskContent += `<div class="task-desc">${task.description}</div>`;
-						}
-
-						if (task.due) {
-							taskContent += `<span class="task-due">Due: ${task.due.string}</span>`;
-						}
-
-						taskElement.innerHTML = taskContent;
-						pendingDiv.appendChild(taskElement);
-					}
-				});
-			})
-			.catch(error => {
-				console.error("Error fetching tasks:", error);
-				document.body.innerHTML = "<p>Failed to load tasks.</p>";
-			});
+	  fetch("/.netlify/functions/getTasks")
+		.then(async response => {
+		  const payload = await response.json();
+		  if (!response.ok) {
+			throw new Error(payload.message || `${response.status} ${response.statusText}`);
+		  }
+		  return payload;
+		})
+		.then(tasks => {
+		  // Sort by creation date (newest first)
+		  tasks.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+	
+		  const pendingDiv    = document.getElementById("pending");
+		  const completedList = document.getElementById("completed");
+	
+		  // Clear any existing content
+		  pendingDiv.innerHTML    = "";
+		  completedList.innerHTML = "";
+	
+		  tasks.forEach(task => {
+			if (task.completed) {
+			  // Completed: add to the list
+			  const li = document.createElement("li");
+			  li.textContent = task.content;
+			  completedList.appendChild(li);
+			} else {
+			  // Pending: build the card
+			  const taskEl = document.createElement("div");
+			  taskEl.classList.add("task");
+	
+			  // Header (name + button)
+			  const header = document.createElement("div");
+			  header.classList.add("task-header");
+	
+			  const name = document.createElement("div");
+			  name.classList.add("task-name");
+			  name.textContent = task.content;
+			  header.appendChild(name);
+	
+			  const subject = encodeURIComponent(`I'll do: ${task.content}`);
+			  const body    = encodeURIComponent(
+				`Hello Pastor Matt,\n\nI'd like to take on the following task:\n\nTask: ${task.content}\n\nMy Name:\n\nI plan to complete this by:\n\nThanks!`
+			  );
+			  const link = document.createElement("a");
+			  link.href = `mailto:matt@landmarklafayette.com?subject=${subject}&body=${body}`;
+			  link.classList.add("task-button");
+			  link.textContent = "I'll do this!";
+			  header.appendChild(link);
+	
+			  taskEl.appendChild(header);
+	
+			  // Description
+			  if (task.description) {
+				const desc = document.createElement("div");
+				desc.classList.add("task-desc");
+				desc.textContent = task.description;
+				taskEl.appendChild(desc);
+			  }
+	
+			  // Due date
+			  if (task.due && task.due.string) {
+				const due = document.createElement("span");
+				due.classList.add("task-due");
+				due.textContent = `Due: ${task.due.string}`;
+				taskEl.appendChild(due);
+			  }
+	
+			  pendingDiv.appendChild(taskEl);
+			}
+		  });
+		})
+		.catch(error => {
+		  console.error("Load tasks error:", error);
+		  document.body.innerHTML = `<p style="color:red;">Failed to load tasks:<br>${error.message}</p>`;
+		});
 	</script>
 <script defer src="https://tinylytics.app/embed/MvNYAgEzMdyeLySe7xNS/min.js"></script>
 </body>

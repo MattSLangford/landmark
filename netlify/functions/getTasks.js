@@ -1,9 +1,9 @@
 // netlify/functions/getTasks.js
 const fetch = require('node-fetch');
 
-exports.handler = async () => {
+exports.handler = async (event, context) => {
   try {
-	// 1. Sign in
+	// 1) Sign in to Godspeed to get a JWT
 	const signinRes = await fetch("https://api.godspeedapp.com/sessions/sign_in", {
 	  method:  "POST",
 	  headers: { "Content-Type": "application/json" },
@@ -18,7 +18,7 @@ exports.handler = async () => {
 	}
 	const { token } = await signinRes.json();
 
-	// 2. Fetch tasks
+	// 2) Fetch your tasks
 	const tasksRes = await fetch("https://api.godspeedapp.com/tasks", {
 	  headers: { Authorization: `Bearer ${token}` }
 	});
@@ -28,7 +28,7 @@ exports.handler = async () => {
 	}
 	const godspeedTasks = await tasksRes.json();
 
-	// 3. Map to front-end shape
+	// 3) Map them into the shape your front-end expects
 	const tasks = godspeedTasks.map(t => ({
 	  content:     t.title,
 	  description: t.notes,
@@ -37,11 +37,13 @@ exports.handler = async () => {
 	  created_at:  t.created_at
 	}));
 
+	// 4) Return success
 	return {
 	  statusCode: 200,
 	  headers:    { "Content-Type": "application/json" },
 	  body:       JSON.stringify(tasks)
 	};
+
   } catch (error) {
 	console.error("getTasks error:", error);
 	return {
