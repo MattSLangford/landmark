@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 
 exports.handler = async () => {
   try {
-	// 1) Sign in to Godspeed to get a JWT
+	// 1) Sign in to Godspeed → get JWT
 	const signinRes = await fetch(
 	  "https://api.godspeedapp.com/sessions/sign_in",
 	  {
@@ -19,9 +19,9 @@ exports.handler = async () => {
 	  const text = await signinRes.text();
 	  throw new Error(`Sign-in failed (${signinRes.status}): ${text}`);
 	}
-	const { token } = await signinRes.json();  //  [oai_citation:0‡Godspeed](https://godspeedapp.com/guides/api?utm_source=chatgpt.com)
+	const { token } = await signinRes.json();
 
-	// 2) Fetch tasks with that token
+	// 2) Fetch all tasks
 	const tasksRes = await fetch("https://api.godspeedapp.com/tasks", {
 	  headers: { Authorization: `Bearer ${token}` }
 	});
@@ -32,7 +32,7 @@ exports.handler = async () => {
 	const raw = await tasksRes.json();
 	console.log("🔍 raw Godspeed response:", raw);
 
-	// 3) Extract the array (could be top-level, or under .tasks or .data)
+	// 3) Pull out the array (top-level, or .tasks, or .data)
 	const items = Array.isArray(raw)
 	  ? raw
 	  : raw.tasks && Array.isArray(raw.tasks)
@@ -47,8 +47,15 @@ exports.handler = async () => {
 	  );
 	}
 
-	// 4) Map to the shape your front-end expects
-	const tasks = items.map(t => ({
+	// 4) Filter to just the list you care about
+	const listId = process.env.GODSPEED_LIST_ID;
+	if (!listId) {
+	  throw new Error("Missing GODSPEED_LIST_ID environment variable");
+	}
+	const filtered = items.filter(t => t.list_id === listId);
+
+	// 5) Map into your front-end’s shape
+	const tasks = filtered.map(t => ({
 	  content:     t.title,
 	  description: t.notes,
 	  due:         t.due_at ? { string: new Date(t.due_at).toLocaleDateString() } : null,
@@ -56,7 +63,6 @@ exports.handler = async () => {
 	  created_at:  t.created_at
 	}));
 
-	// 5) Return success
 	return {
 	  statusCode: 200,
 	  headers:    { "Content-Type": "application/json" },
