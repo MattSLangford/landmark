@@ -1,160 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Landmark Church Tasks</title>
-  <style>
-	body {
-	  font-family: Arial, sans-serif;
-	  background-color: #f5f5f5;
-	  max-width: 700px;
-	  margin: auto;
-	  padding: 20px;
-	  line-height: 1.6;
-	  color: #333;
-	}
-	h1, h2 {
-	  text-align: center;
-	  margin-bottom: 10px;
-	}
-	h2 {
-	  border-bottom: 2px solid #ddd;
-	  padding-bottom: 5px;
-	}
-	.blurb {
-	  font-size: 16px;
-	  margin-bottom: 20px;
-	  padding: 15px;
-	  background: white;
-	  border-radius: 5px;
-	  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	  text-align: center;
-	}
-	.task {
-	  background: white;
-	  padding: 15px;
-	  margin: 10px 0;
-	  border-radius: 5px;
-	  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	}
-	.task-header {
-	  display: flex;
-	  justify-content: space-between;
-	  align-items: center;
-	}
-	.task-name {
-	  font-size: 20px;
-	  font-weight: bold;
-	  margin-bottom: 5px;
-	  flex-grow: 1;
-	}
-	.task-desc {
-	  font-size: 15px;
-	  color: #555;
-	  margin-bottom: 10px;
-	}
-	.task-due {
-	  font-size: 13px;
-	  color: #888;
-	  display: block;
-	  margin-top: 10px;
-	}
-	.task-button {
-	  padding: 8px 12px;
-	  background-color: #007BFF;
-	  color: white;
-	  text-decoration: none;
-	  font-size: 14px;
-	  border-radius: 5px;
-	  border: none;
-	  cursor: pointer;
-	  transition: background 0.3s;
-	  white-space: nowrap;
-	  margin-left: 10px;
-	}
-	.task-button:hover {
-	  background-color: #0056b3;
-	}
-  </style>
+	<meta charset="UTF-8">
+	<title>Landmark Church To Dos</title>
 </head>
-<body>
-  <h1>Landmark Church Tasks</h1>
+<body style="font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 20px;">
+	<h1 style="color: #2c3e50; text-align: center;">Landmark Church To Dos</h1>
+	
+	<div style="background: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1)">
+		<ul id="todoList" style="list-style: none; padding: 0; margin: 0;">
+			<li style="background: white; padding: 12px; margin-bottom: 8px; border-radius: 4px; display: flex; align-items: center; gap: 10px">
+	<span style="flex: 1">☐ Strip and Repaint Outdoor Railings in Parking Lot</span>
+<span style="flex: 1">The outdoor handicapped railings have rusted and chipped over the years. Will require sanding and painting in outdoor weather.</span>
+	<a href="mailto:matt@landmarklafayette?subject=Task To Complete: Strip and Repaint Outdoor Railings in Parking Lot&body=Preferred completion date:%0A%0AQuestions:" style="padding: 6px 12px; background: #2ecc71; color: white; text-decoration: none; border-radius: 4px">Complete</a>
+</li>
 
-  <div class="blurb">
-	<p>We truly appreciate your willingness to help keep Landmark Church running smoothly. Your time and effort make a difference! Below is a list of open tasks. Click "I'll do this!" to let us know you're available.</p>
-  </div>
+<li style="background: white; padding: 12px; margin-bottom: 8px; border-radius: 4px; display: flex; align-items: center; gap: 10px">
+	<span style="flex: 1">☐ Plumber Needed: New Kitchen Sink</span>
+<span style="flex: 1">The kitchen in the main building is in need of a new sink and faucet. Will require an assessment first.</span>
+	<a href="mailto:matt@landmarklafayette?subject=Task To Complete: Plumber Needed: New Kitchen Sink&body=Preferred completion date:%0A%0AQuestions:" style="padding: 6px 12px; background: #2ecc71; color: white; text-decoration: none; border-radius: 4px">Complete</a>
+</li>
 
-  <h2>Open Tasks</h2>
-  <div id="pending"></div>
+<li style="background: white; padding: 12px; margin-bottom: 8px; border-radius: 4px; display: flex; align-items: center; gap: 10px">
+	<span style="flex: 1">☐ Weekly Cleaner Needed</span>
+<span style="flex: 1">We are in need of someone to vacuum the sanctuary on Sundays after service.</span>
+	<a href="mailto:matt@landmarklafayette?subject=Task To Complete: Weekly Cleaner Needed&body=Preferred completion date:%0A%0AQuestions:" style="padding: 6px 12px; background: #2ecc71; color: white; text-decoration: none; border-radius: 4px">Complete</a>
+</li>
 
-  <script>
-	fetch("/.netlify/functions/getTasks")
-	  .then(async response => {
-		const payload = await response.json();
-		if (!response.ok) {
-		  throw new Error(payload.message || `${response.status} ${response.statusText}`);
-		}
-		return payload;
-	  })
-	  .then(tasks => {
-		// only pendings, sorted newest first
-		const open = tasks
-		  .filter(t => !t.completed)
-		  .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+<li style="background: white; padding: 12px; margin-bottom: 8px; border-radius: 4px; display: flex; align-items: center; gap: 10px">
+	<span style="flex: 1">☐ Electrician Needed: Convert Fluorescent fixtures to LED</span>
+<span style="flex: 1">The fellowship hall is the last remaining room with old fluorescent light fixtures. We need to have those changed out to new LED fixtures.</span>
+	<a href="mailto:matt@landmarklafayette?subject=Task To Complete: Electrician Needed: Convert Fluorescent fixtures to LED&body=Preferred completion date:%0A%0AQuestions:" style="padding: 6px 12px; background: #2ecc71; color: white; text-decoration: none; border-radius: 4px">Complete</a>
+</li>
 
-		const pendingDiv = document.getElementById("pending");
-		pendingDiv.innerHTML = "";
+<li style="background: white; padding: 12px; margin-bottom: 8px; border-radius: 4px; display: flex; align-items: center; gap: 10px">
+	<span style="flex: 1">☐ Plumber Needed: Hot Water Heater Replacement</span>
+<span style="flex: 1">The hot water heater that supplies the main building is in need of replacement. We would like to switch to a lower maintenance tankless setup. Consultation needed first.</span>
+	<a href="mailto:matt@landmarklafayette?subject=Task To Complete: Plumber Needed: Hot Water Heater Replacement&body=Preferred completion date:%0A%0AQuestions:" style="padding: 6px 12px; background: #2ecc71; color: white; text-decoration: none; border-radius: 4px">Complete</a>
+</li>
 
-		open.forEach(task => {
-		  const card = document.createElement("div");
-		  card.classList.add("task");
+<li style="background: white; padding: 12px; margin-bottom: 8px; border-radius: 4px; display: flex; align-items: center; gap: 10px">
+	<span style="flex: 1">☐ Plumber Needed: Men’s Urinal Fix</span>
+<span style="flex: 1">One of our wall mounted men’s urinals is leaking and needs to be fixed.
+</span>
+	<a href="mailto:matt@landmarklafayette?subject=Task To Complete: Plumber Needed: Men’s Urinal Fix&body=Preferred completion date:%0A%0AQuestions:" style="padding: 6px 12px; background: #2ecc71; color: white; text-decoration: none; border-radius: 4px">Complete</a>
+</li>
 
-		  // header
-		  const header = document.createElement("div");
-		  header.classList.add("task-header");
-		  const name = document.createElement("div");
-		  name.classList.add("task-name");
-		  name.textContent = task.content;
-		  header.appendChild(name);
+<li style="background: white; padding: 12px; margin-bottom: 8px; border-radius: 4px; display: flex; align-items: center; gap: 10px">
+	<span style="flex: 1">☐ Change Ceiling Tiles</span>
+<span style="flex: 1">Throughout the building, there are approximately one dozen ceiling tiles that need to be replaced.</span>
+	<a href="mailto:matt@landmarklafayette?subject=Task To Complete: Change Ceiling Tiles&body=Preferred completion date:%0A%0AQuestions:" style="padding: 6px 12px; background: #2ecc71; color: white; text-decoration: none; border-radius: 4px">Complete</a>
+</li>
 
-		  const subject = encodeURIComponent(`I'll do: ${task.content}`);
-		  const body = encodeURIComponent(
-			`Hello Pastor Matt,\n\nI'd like to take on the following task:\n\nTask: ${task.content}\n\nMy Name:\n\nI plan to complete this by:\n\nThanks!`
-		  );
-		  const btn = document.createElement("a");
-		  btn.href = `mailto:matt@landmarklafayette.com?subject=${subject}&body=${body}`;
-		  btn.classList.add("task-button");
-		  btn.textContent = "I'll do this!";
-		  header.appendChild(btn);
+<li style="background: white; padding: 12px; margin-bottom: 8px; border-radius: 4px; display: flex; align-items: center; gap: 10px">
+	<span style="flex: 1">☐ Paint light poles in parking lot</span>
+<span style="flex: 1">The light poles in the parking lot need a fresh coat of paint.</span>
+	<a href="mailto:matt@landmarklafayette?subject=Task To Complete: Paint light poles in parking lot&body=Preferred completion date:%0A%0AQuestions:" style="padding: 6px 12px; background: #2ecc71; color: white; text-decoration: none; border-radius: 4px">Complete</a>
+</li>
 
-		  card.appendChild(header);
+<li style="background: white; padding: 12px; margin-bottom: 8px; border-radius: 4px; display: flex; align-items: center; gap: 10px">
+	<span style="flex: 1">☐ Shampoo Rugs</span>
+<span style="flex: 1">We have two large rugs that need to be cleaned and shampooed. 
+</span>
+	<a href="mailto:matt@landmarklafayette?subject=Task To Complete: Shampoo Rugs&body=Preferred completion date:%0A%0AQuestions:" style="padding: 6px 12px; background: #2ecc71; color: white; text-decoration: none; border-radius: 4px">Complete</a>
+</li>
 
-		  // description
-		  if (task.description) {
-			const desc = document.createElement("div");
-			desc.classList.add("task-desc");
-			desc.textContent = task.description;
-			card.appendChild(desc);
-		  }
-
-		  // due date
-		  if (task.due && task.due.string) {
-			const due = document.createElement("span");
-			due.classList.add("task-due");
-			due.textContent = `Due: ${task.due.string}`;
-			card.appendChild(due);
-		  }
-
-		  pendingDiv.appendChild(card);
-		});
-	  })
-	  .catch(error => {
-		console.error("Load tasks error:", error);
-		document.body.innerHTML = `<p style="color:red;">Failed to load tasks:<br>${error.message}</p>`;
-	  });
-  </script>
-
-  <script defer src="https://tinylytics.app/embed/MvNYAgEzMdyeLySe7xNS/min.js"></script>
+<li style="background: white; padding: 12px; margin-bottom: 8px; border-radius: 4px; display: flex; align-items: center; gap: 10px">
+	<span style="flex: 1">☐ Clean Air Return Vents</span>
+<span style="flex: 1">The air return vents throughout the building need to be dusted and cleaned.
+</span>
+	<a href="mailto:matt@landmarklafayette?subject=Task To Complete: Clean Air Return Vents&body=Preferred completion date:%0A%0AQuestions:" style="padding: 6px 12px; background: #2ecc71; color: white; text-decoration: none; border-radius: 4px">Complete</a>
+</li>
+		
+</ul>
+	</div>
 </body>
 </html>
