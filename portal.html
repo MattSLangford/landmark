@@ -5,221 +5,406 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Landmark Church Internal Portal</title>
 	<style>
+		:root {
+			--bg-color: #f5f5f5;
+			--text-color: #1f343f;
+			--header-bg: white;
+			--card-bg: white;
+			--border-color: #e2e8f0;
+			--accent-color: #f0a830;
+			--footer-bg: #1f343f;
+			--footer-text: white;
+		}
+
+		[data-theme="dark"] {
+			--bg-color: #1a1a1a;
+			--text-color: #e5e5e5;
+			--header-bg: #d0d0d0;
+			--card-bg: #2d2d2d;
+			--border-color: #404040;
+			--accent-color: #f0a830;
+			--footer-bg: #000;
+			--footer-text: #e5e5e5;
+		}
+
 		* {
 			margin: 0;
 			padding: 0;
 			box-sizing: border-box;
 		}
-		
+
 		body {
-			font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
-			line-height: 1.6;
-			color: #2d3748;
-			background: #f8fafc;
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+			background: var(--bg-color);
+			color: var(--text-color);
 			min-height: 100vh;
 			display: flex;
 			flex-direction: column;
+			transition: background-color 0.3s ease, color 0.3s ease;
 		}
-		
+
 		.header {
-			background: white;
-			border-bottom: 1px solid #e2e8f0;
-			padding: 1.5rem 0;
+			background: var(--header-bg);
+			border-bottom: 2px solid var(--accent-color);
+			padding: 1rem 0;
 			text-align: center;
+			position: relative;
+			transition: background-color 0.3s ease;
 		}
-		
-		.logo img {
-			max-width: 160px;
-			height: auto;
+
+		.logo {
+			height: 70px;
+			width: auto;
 		}
-		
+
 		.main {
 			flex: 1;
-			max-width: 600px;
+			max-width: 1000px;
 			width: 100%;
 			margin: 0 auto;
-			padding: 2rem 1rem;
+			padding: 1.5rem;
 		}
-		
-		.links-list {
-			list-style: none;
+
+		.section {
+			margin-bottom: 2rem;
 		}
-		
+
+		.dark-mode-toggle {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			background: var(--card-bg);
+			border: 1px solid var(--border-color);
+			border-radius: 20px;
+			width: 40px;
+			height: 40px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.2rem;
+			transition: all 0.3s ease;
+		}
+
+		.dark-mode-toggle:hover {
+			background: var(--accent-color);
+			transform: scale(1.1);
+		}
+
+		.section-title {
+			font-size: 1.1rem;
+			font-weight: 600;
+			color: var(--text-color);
+			margin-bottom: 0.75rem;
+			padding-bottom: 0.4rem;
+			border-bottom: 2px solid var(--accent-color);
+			display: inline-block;
+		}
+
+		.grid {
+			display: grid;
+			gap: 0.75rem;
+		}
+
+		.planning-center-grid {
+			grid-template-columns: repeat(5, 1fr);
+		}
+
+		.quick-access-grid {
+			grid-template-columns: repeat(5, 1fr);
+		}
+
+		.resources-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		.social-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
 		.link-item {
 			display: flex;
-			justify-content: space-between;
 			align-items: center;
-			padding: 0.75rem 0;
+			padding: 0.75rem 1rem;
+			background: var(--card-bg);
+			border: 1px solid var(--border-color);
+			border-radius: 6px;
 			text-decoration: none;
-			color: #4299e1;
-			font-size: 0.875rem;
-			border-bottom: 1px solid #e2e8f0;
+			color: var(--text-color);
+			transition: all 0.2s ease;
+			font-weight: 500;
+			font-size: 0.95rem;
+			min-height: 44px;
+			white-space: nowrap;
 		}
-		
+
 		.link-item:hover {
-			color: #2d3748;
+			background: var(--accent-color);
+			color: white;
+			border-color: var(--accent-color);
+			transform: translateY(-1px);
+			box-shadow: 0 4px 12px rgba(240, 168, 48, 0.3);
 		}
-		
-		.link-item:last-child {
-			border-bottom: none;
-		}
-		
-		.shortcut-key {
-			color: #718096;
-			font-size: 0.75rem;
-			opacity: 0.7;
-		}
-		
-		.footer {
-			background: white;
-			border-top: 1px solid #e2e8f0;
-			padding: 2rem 1rem;
+
+		.link-icon {
+			font-size: 1.1rem;
+			margin-right: 0.65rem;
+			width: 1.3rem;
 			text-align: center;
 		}
-		
-		.contact-info {
-			max-width: 600px;
-			margin: 0 auto;
-			font-size: 0.875rem;
-			line-height: 1.8;
+
+		.footer {
+			background: var(--footer-bg);
+			color: var(--footer-text);
+			padding: 1.25rem 1rem;
+			margin-top: auto;
+			transition: background-color 0.3s ease, color 0.3s ease;
 		}
-		
-		.contact-info p {
+
+		.contact-grid {
+			max-width: 1000px;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 1rem;
+			font-size: 0.9rem;
+		}
+
+		.contact-item {
+			display: flex;
+			align-items: center;
 			margin: 0.25rem 0;
 		}
-		
-		.contact-info a {
-			color: #4299e1;
+
+		.contact-icon {
+			margin-right: 0.5rem;
+			color: var(--accent-color);
+		}
+
+		.contact-item a {
+			color: var(--accent-color);
 			text-decoration: none;
 		}
-		
-		.contact-info a:hover {
+
+		.contact-item a:hover {
 			text-decoration: underline;
 		}
-		
-		@media (max-width: 480px) {
-			.header {
-				padding: 1rem 0;
-			}
-			
-			.logo img {
-				max-width: 140px;
-			}
-			
+
+		@media (max-width: 900px) {
 			.main {
-				padding: 1rem 0.75rem;
+				padding: 1rem;
+			}
+
+			.planning-center-grid,
+			.quick-access-grid,
+			.resources-grid {
+				grid-template-columns: repeat(3, 1fr);
+			}
+
+			.logo {
+				height: 60px;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.planning-center-grid,
+			.quick-access-grid,
+			.resources-grid,
+			.social-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			.link-item {
+				padding: 0.75rem 0.875rem;
+				font-size: 0.9rem;
+				min-height: 48px;
+			}
+
+			.section-title {
+				font-size: 1rem;
+			}
+		}
+
+		@media (max-width: 320px) {
+			.planning-center-grid,
+			.quick-access-grid,
+			.resources-grid,
+			.social-grid {
+				grid-template-columns: 1fr;
 			}
 		}
 	</style>
 </head>
 <body>
 	<header class="header">
-		<img src="/images/logo.svg" alt="Landmark Church Logo" class="logo">
+		<img src="/images/logo.svg" alt="Landmark Church" class="logo">
+		<button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+			🌙
+		</button>
 	</header>
-	
+
 	<main class="main">
-		<div class="links-list">
-			<a href="https://landmarklafayette.com" class="link-item">
-				<span>🏛️ Church Website</span>
-				<span class="shortcut-key">1</span>
-			</a>
-			<a href="https://people.planningcenteronline.com/" class="link-item">
-				<span>📅 Planning Center</span>
-				<span class="shortcut-key">2</span>
-			</a>
-			<a href="https://landmarkchurch.churchcenter.com/setup" class="link-item">
-				<span>📱 Download App</span>
-				<span class="shortcut-key">3</span>
-			</a>
-			<a href="https://drive.google.com/a/landmarklafayette.com" class="link-item">
-				<span>💾 Google Drive</span>
-				<span class="shortcut-key">4</span>
-			</a>
-			<a href="https://drive.google.com/drive/folders/1OzJx7rZip1ZvI6dI1NUBW3OUAdP5oOfw?usp=share_link" class="link-item">
-				<span>📄 Handouts</span>
-				<span class="shortcut-key">5</span>
-			</a>
-			<a href="https://drive.google.com/drive/folders/1qYomQFAY10kbrFBg965EdIvNmfJHrTJs" class="link-item">
-				<span>📋 Policies</span>
-				<span class="shortcut-key">6</span>
-			</a>
-			<a href="https://quickbooks.com" class="link-item">
-				<span>💰 QuickBooks</span>
-				<span class="shortcut-key">7</span>
-			</a>
-			<a href="https://landmarklafayette.com/todo.html" class="link-item">
-				<span>✅ ToDo List</span>
-				<span class="shortcut-key">8</span>
-			</a>
-			<a href="https://landmarkchurch.churchcenter.com/people/forms/373239" class="link-item">
-				<span>💦 Baptism Form</span>
-				<span class="shortcut-key">9</span>
-			</a>
-			<a href="https://facebook.com/landmarklafayette" class="link-item">
-				<span>📘 Facebook</span>
-				<span class="shortcut-key">0</span>
-			</a>
-			<a href="https://instagram.com/landmarkchurch" class="link-item">
-				<span>📸 Instagram</span>
-				<span class="shortcut-key">-</span>
-			</a>
-			<a href="https://www.youtube.com/watch?v=ey4JnDqAHSk" class="link-item">
-				<span>📺 Baptism Video</span>
-				<span class="shortcut-key">=</span>
-			</a>
-			<a href="https://www.youtube.com/landmarkchurch" class="link-item">
-				<span>📺 YouTube Live</span>
-				<span class="shortcut-key">\</span>
-			</a>
-		</div>
+		<section class="section">
+			<h2 class="section-title">📋 Planning Center</h2>
+			<div class="grid planning-center-grid">
+				<a href="https://people.planningcenteronline.com/" class="link-item">
+					<span class="link-icon">🏠</span>
+					Dashboard
+				</a>
+				<a href="https://people.planningcenteronline.com/people" class="link-item">
+					<span class="link-icon">👥</span>
+					People
+				</a>
+				<a href="https://people.planningcenteronline.com/calendar" class="link-item">
+					<span class="link-icon">📅</span>
+					Calendar
+				</a>
+				<a href="https://people.planningcenteronline.com/registrations" class="link-item">
+					<span class="link-icon">📝</span>
+					Registrations
+				</a>
+				<a href="https://people.planningcenteronline.com/giving" class="link-item">
+					<span class="link-icon">💰</span>
+					Giving
+				</a>
+				<a href="https://people.planningcenteronline.com/publishing" class="link-item">
+					<span class="link-icon">📢</span>
+					Publishing
+				</a>
+				<a href="https://people.planningcenteronline.com/groups" class="link-item">
+					<span class="link-icon">👪</span>
+					Groups
+				</a>
+				<a href="https://people.planningcenteronline.com/services" class="link-item">
+					<span class="link-icon">⛪</span>
+					Services
+				</a>
+				<a href="https://people.planningcenteronline.com/check-ins" class="link-item">
+					<span class="link-icon">✅</span>
+					Check-Ins
+				</a>
+			</div>
+		</section>
+
+		<section class="section">
+			<h2 class="section-title">🚀 Quick Access</h2>
+			<div class="grid quick-access-grid">
+				<a href="https://landmarklafayette.com" class="link-item">
+					<span class="link-icon">🏛️</span>
+					Church Website
+				</a>
+				<a href="https://landmarkchurch.churchcenter.com/setup" class="link-item">
+					<span class="link-icon">📱</span>
+					Download App
+				</a>
+				<a href="https://drive.google.com/a/landmarklafayette.com" class="link-item">
+					<span class="link-icon">💾</span>
+					Google Drive
+				</a>
+				<a href="https://quickbooks.com" class="link-item">
+					<span class="link-icon">💼</span>
+					QuickBooks
+				</a>
+				<a href="https://landmarklafayette.com/todo.html" class="link-item">
+					<span class="link-icon">✅</span>
+					ToDo List
+				</a>
+			</div>
+		</section>
+
+		<section class="section">
+			<h2 class="section-title">📁 Resources</h2>
+			<div class="grid resources-grid">
+				<a href="https://drive.google.com/drive/folders/1OzJx7rZip1ZvI6dI1NUBW3OUAdP5oOfw?usp=share_link" class="link-item">
+					<span class="link-icon">📄</span>
+					Handouts
+				</a>
+				<a href="https://drive.google.com/drive/folders/1qYomQFAY10kbrFBg965EdIvNmfJHrTJs" class="link-item">
+					<span class="link-icon">📋</span>
+					Policies
+				</a>
+				<a href="https://landmarkchurch.churchcenter.com/people/forms/373239" class="link-item">
+					<span class="link-icon">💦</span>
+					Baptism Form
+				</a>
+				<a href="https://www.youtube.com/watch?v=ey4JnDqAHSk" class="link-item">
+					<span class="link-icon">🎬</span>
+					Baptism Video
+				</a>
+			</div>
+		</section>
+
+		<section class="section">
+			<h2 class="section-title">📢 Social Media</h2>
+			<div class="grid social-grid">
+				<a href="https://facebook.com/landmarklafayette" class="link-item">
+					<span class="link-icon">📘</span>
+					Facebook
+				</a>
+				<a href="https://instagram.com/landmarkchurch" class="link-item">
+					<span class="link-icon">📸</span>
+					Instagram
+				</a>
+				<a href="https://www.youtube.com/landmarkchurch" class="link-item">
+					<span class="link-icon">📺</span>
+					YouTube Live
+				</a>
+			</div>
+		</section>
 	</main>
-	
+
 	<footer class="footer">
-		<div class="contact-info">
-			<p>Email: <a href="mailto:info@landmarklafayette.com">info@landmarklafayette.com</a></p>
-			<p>Phone: <a href="tel:337-232-3974">337-232-3974</a></p>
-			<p>Physical Address: 1610 W Willow St, Lafayette, LA 70583</p>
-			<p>Mailing Address: PO Box 62833, Lafayette, LA 70596</p>
-			<p>Tax ID: 721318888</p>
+		<div class="contact-grid">
+			<div>
+				<div class="contact-item">
+					<span class="contact-icon">✉️</span>
+					<a href="mailto:info@landmarklafayette.com">info@landmarklafayette.com</a>
+				</div>
+				<div class="contact-item">
+					<span class="contact-icon">📞</span>
+					<a href="tel:337-232-3974">337-232-3974</a>
+				</div>
+			</div>
+			<div>
+				<div class="contact-item">
+					<span class="contact-icon">📍</span>
+					1610 W Willow St, Lafayette, LA 70583
+				</div>
+				<div class="contact-item">
+					<span class="contact-icon">📮</span>
+					PO Box 62833, Lafayette, LA 70596
+				</div>
+			</div>
+			<div>
+				<div class="contact-item">
+					<span class="contact-icon">🆔</span>
+					Tax ID: 721318888
+				</div>
+			</div>
 		</div>
 	</footer>
-	
-	<script defer src="https://tinylytics.app/embed/MvNYAgEzMdyeLySe7xNS/min.js"></script>
+
 	<script>
-		document.addEventListener('keydown', function(event) {
-			// Only trigger if no modifier keys are pressed and not in an input field
-			if (event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
-			if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
-			
-			const links = document.querySelectorAll('.link-item');
-			const keyMap = {
-				'1': 0, '2': 1, '3': 2, '4': 3, '5': 4, '6': 5,
-				'7': 6, '8': 7, '9': 8, '0': 9
-			};
-			
-			// Handle 1-9 and 0 (for 10th link)
-			if (keyMap.hasOwnProperty(event.key)) {
-				event.preventDefault();
-				const linkIndex = keyMap[event.key];
-				if (links[linkIndex]) {
-					links[linkIndex].click();
-				}
-			}
-			
-			// Handle -, =, and \ keys for 11th, 12th, and 13th links
-			if (event.key === '-' && links[10]) {
-				event.preventDefault();
-				links[10].click();
-			}
-			if (event.key === '=' && links[11]) {
-				event.preventDefault();
-				links[11].click();
-			}
-			if (event.key === '\\' && links[12]) {
-				event.preventDefault();
-				links[12].click();
-			}
-		});
+		// Check for saved theme or default to light mode
+		const currentTheme = localStorage.getItem('theme') || 'light';
+		const toggleButton = document.querySelector('.dark-mode-toggle');
+
+		// Apply saved theme on page load
+		if (currentTheme === 'dark') {
+			document.documentElement.setAttribute('data-theme', 'dark');
+			toggleButton.textContent = '☀️';
+		}
+
+		function toggleDarkMode() {
+			const currentTheme = document.documentElement.getAttribute('data-theme');
+			const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+			document.documentElement.setAttribute('data-theme', newTheme);
+			localStorage.setItem('theme', newTheme);
+
+			// Update button icon
+			toggleButton.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+		}
 	</script>
 </body>
 </html>
