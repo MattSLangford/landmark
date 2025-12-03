@@ -3,118 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>404 – Page Not Found | Landmark Church</title>
-  <meta name="description" content="Sorry, we couldn’t find that page. Let’s get you back on track at Landmark Church.">
-  <link rel="canonical" href="https://landmarklafayette.com/404.html">
-
-  <!-- Smart App Banners -->
-  <meta name="apple-itunes-app" content="app-id=1357742931">
-  <meta name="google-play-app" content="app-id=com.ministrycentered.churchcenter">
-
-  <!-- Open Graph & Twitter -->
-  <meta property="og:title"       content="404 – Page Not Found | Landmark Church">
-  <meta property="og:description" content="Sorry, we couldn’t find that page. Let’s get you back on track at Landmark Church.">
-  <meta property="og:url"         content="https://landmarklafayette.com/404.html">
-  <meta property="og:image"       content="https://landmarklafayette.com/images/og.png">
-  <meta name="twitter:card"       content="summary_large_image">
-
-  <!-- Theme Colors -->
-  <meta name="theme-color" content="#20343F">
-  <meta name="msapplication-TileColor" content="#20343F">
-
-  <!-- Favicons & Touch Icons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-
-  <!-- Android PWA Icons -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
-
-  <!-- Web App Manifest -->
-  <link rel="manifest" href="/site.webmanifest">
-
-  <!-- ChurchCenter Modal Script -->
+  <title>Page Not Found | Landmark Church</title>
+  <meta name="robots" content="noindex">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="mask-icon" href="logo.svg" color="#0f171c">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer">
+  <meta name="theme-color" content="#0f171c">
   <script src="https://js.churchcenter.com/modal/v1"></script>
-
-  <!-- FontAwesome v6.7.2 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-  <style>
-	:root {
-	  --brand:  #F0A830;
-	  --text:   #20343F;
-	  --bg:     #f9f9f9;
-	  --accent: #fff;
-	}
-	*, *::before, *::after {
-	  margin: 0; padding: 0; box-sizing: border-box;
-	}
-	html, body { height: 100%; }
-	body {
-	  background: var(--bg);
-	  color: var(--text);
-	  font-family: system-ui, sans-serif;
-	  line-height: 1.6;
-	  padding: 20px;
-	}
-	a { color: var(--brand); text-decoration: none; }
-	a:hover, a:focus { text-decoration: underline; }
-
-	.skip-link {
-	  position: absolute; top: -40px; left: 0;
-	  background: var(--text); color: var(--accent);
-	  padding: 8px; z-index: 1000; text-decoration: none;
-	}
-	.skip-link:focus { top: 0; }
-
-	.go-home {
-	  display: inline-block;
-	  margin-bottom: 24px;
-	  font-weight: 600;
-	  color: var(--text);
-	}
-
-	main {
-	  max-width: 600px;
-	  margin: 0 auto;
-	  text-align: left;
-	}
-
-	h1 {
-	  font-size: 2.5rem;
-	  margin-bottom: 16px;
-	  color: var(--brand);
-	}
-	p {
-	  margin-bottom: 24px;
-	}
-
-	.btn {
-	  display: inline-block;
-	  padding: 12px 24px;
-	  background: var(--brand);
-	  color: var(--accent);
-	  border-radius: 4px;
-	  font-weight: 600;
-	  text-decoration: none;
-	}
-	.btn:hover, .btn:focus {
-	  background: #d89e28;
-	  outline: 3px solid var(--text);
-	}
-  </style>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
-  <a href="/" class="go-home">← Go Home</a>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-hero minimal" aria-label="Page not found">
+    <div class="site-hero__inner">
+      <div class="hero-top">
+        <a href="index.html"><img class="logo" src="images/logo.svg" alt="Landmark Church logo"></a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Open navigation">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+        <nav class="site-nav" aria-label="Primary" id="primary-menu" data-open="false">
+          <button class="menu-close" type="button" aria-label="Close navigation">×</button>
+          <a href="index.html#visit">Visit</a>
+          <a href="index.html#ministries">Ministries</a>
+          <a href="index.html#pastors">Leadership</a>
+          <a href="https://landmarkchurch.churchcenter.com/channels/5760" target="_blank" rel="noopener">Watch Live</a>
+          <a href="https://landmarkchurch.churchcenter.com/people/forms/13671" data-open-in-church-center-modal="true">Contact</a>
+          <a class="pill" href="giving.html">Give</a>
+        </nav>
+      </div>
+    </div>
+  </header>
 
   <main id="main">
-	<h1>404 – Page Not Found</h1>
-	<p>We’re sorry, but the page you were looking for doesn’t exist. It might have been moved or deleted, or the URL could be mistyped.</p>
-	<a href="/" class="btn">Return to Homepage</a>
+    <section class="section page-content">
+      <div class="page-content__intro">
+        <p class="eyebrow">404</p>
+        <h1>We can’t find that page</h1>
+        <p>It looks like the link you followed isn’t available. Use the buttons below to head back to home or let us know how we can help.</p>
+      </div>
+      <div class="giving-options">
+        <article>
+          <h3>Back to Home</h3>
+          <p>Return to the Landmark homepage to plan a visit or explore ministries.</p>
+          <a class="inline-link" href="index.html">Go to homepage</a>
+        </article>
+        <article>
+          <h3>Need Assistance?</h3>
+          <p>Send us a note and we’ll help you track down the information you need.</p>
+          <a class="inline-link" href="https://landmarkchurch.churchcenter.com/people/forms/13671" data-open-in-church-center-modal="true">Send us an email</a>
+        </article>
+      </div>
+    </section>
   </main>
-<script defer src="https://tinylytics.app/embed/MvNYAgEzMdyeLySe7xNS/min.js"></script>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const siteNav = document.getElementById('primary-menu');
+    const closeBtn = document.querySelector('.menu-close');
+    const navLinks = siteNav?.querySelectorAll('a') || [];
+
+    const setNav = (open) => {
+      if (!siteNav || !menuToggle) return;
+      siteNav.dataset.open = String(open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+      if (!open) menuToggle.focus();
+    };
+
+    menuToggle?.addEventListener('click', () => {
+      const isOpen = siteNav?.dataset.open === 'true';
+      setNav(!isOpen);
+    });
+    closeBtn?.addEventListener('click', () => setNav(false));
+    navLinks?.forEach((link) =>
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) setNav(false);
+      })
+    );
+  </script>
 </body>
 </html>
