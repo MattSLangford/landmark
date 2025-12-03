@@ -57,7 +57,7 @@ img {
 
 .site-hero {
   background: var(--card);
-  padding: 1.5rem clamp(1.25rem, 5vw, 3rem) 2.5rem;
+  padding: 1.5rem clamp(1.25rem, 5vw, 3rem) 1.5rem;
   border-bottom: 1px solid var(--line);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
