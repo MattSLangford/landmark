@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Landmark Church Links</title>
+  <meta name="description" content="Quick links for Landmark Church in Lafayette, Louisiana.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preload" href="images/logo.svg" as="image" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer">
+  <style>
+    :root {
+      --ink: #132029;
+      --brand: #f0a830;
+      --card: #ffffff;
+      --bg: #142735;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--card);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem 3rem;
+    }
+
+    main {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .profile-card {
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 1.5rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-card img {
+      width: 120px;
+      margin: 0 auto 1rem;
+      display: block;
+    }
+
+    .profile-card h1 {
+      font-size: 1.25rem;
+      margin: 0 0 0.75rem;
+    }
+
+    .profile-card p {
+      margin: 0 auto 1.5rem;
+      color: #4b5a66;
+      max-width: 30ch;
+      line-height: 1.5;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-links a {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(19, 32, 41, 0.08);
+      color: var(--ink);
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-2px);
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--card);
+      background: var(--ink);
+      padding: 0.85rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      width: 100%;
+    }
+
+    .link-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1.5rem 1.25rem;
+      background: var(--bg);
+      border-radius: 1.5rem;
+    }
+
+    .link-stack a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--brand);
+      color: var(--ink);
+      font-weight: 600;
+      border-radius: 999px;
+      padding: 0.95rem 1.5rem;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .link-stack a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="profile-card">
+      <img src="images/logo.svg" alt="Landmark Church logo" loading="eager">
+      <h1>Welcome Home!</h1>
+      <p>We're glad you're here. Tap a link below to get connected. Have a wonderful day.</p>
+      <div class="social-links" aria-label="Social media">
+        <a href="https://facebook.com/landmarklafayette" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="https://instagram.com/landmarkchurch" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://podcasts.apple.com/us/podcast/landmark-sermons/id1768287177" target="_blank" rel="noopener" aria-label="Apple Podcasts"><i class="fas fa-podcast" aria-hidden="true"></i></a>
+      </div>
+      <a class="contact-btn" href="https://landmarkchurch.churchcenter.com/people/forms/13671" data-open-in-church-center-modal="true">Contact Landmark</a>
+    </section>
+
+    <section class="link-stack" aria-label="Landmark quick links">
+      <a href="https://landmarkchurch.churchcenter.com/people/forms/13671" data-open-in-church-center-modal="true">Fill Out a Connect Card</a>
+      <a href="https://landmarkchurch.churchcenter.com/setup" target="_blank" rel="noopener">Download Our App</a>
+      <a href="https://landmarkchurch.churchcenter.com/giving" data-open-in-church-center-modal="true">Make a Donation</a>
+      <a href="https://landmarkchurch.churchcenter.com/registrations" target="_blank" rel="noopener">Register for Event</a>
+    </section>
+  </main>
+</body>
+</html>
