@@ -381,6 +381,24 @@ main {
   color: var(--muted);
 }
 
+.info-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--brand-dark);
+}
+
+.info-link span {
+  transition: transform 0.2s ease;
+}
+
+.info-link:hover span {
+  transform: translateX(2px);
+}
+
 .pastor-card img {
   width: 100%;
   height: auto;
