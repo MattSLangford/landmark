@@ -1,0 +1,10 @@
+# Redirects from what the browser requests to what we serve
+/hello                /tap.html
+/hello.html			  /tap.html
+/hi                   /tap.html
+/hi.html              /tap.html
+/give				  /giving
+/donate				  /giving
+/donation			  /giving
+/tithing			  /giving
+
