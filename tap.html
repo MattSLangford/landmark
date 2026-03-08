@@ -6,6 +6,7 @@
   <title>Landmark Church Links</title>
   <meta name="description" content="Quick links for Landmark Church in Lafayette, Louisiana.">
   <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#142735">
   <link rel="preload" href="images/logo.svg" as="image" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer">
   <style>
@@ -27,9 +28,9 @@
       color: var(--card);
       min-height: 100vh;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
-      padding: 2rem 1rem 3rem;
+      padding: 1rem 1rem 2.5rem;
     }
 
     main {
@@ -41,30 +42,41 @@
     }
 
     .profile-card {
+      position: relative;
       background: var(--card);
       color: var(--ink);
       border-radius: 1.5rem;
-      padding: 2rem 1.5rem;
+      padding: 1.5rem 1.25rem 1.25rem;
       text-align: center;
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
     }
 
+    .profile-card::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 1.65rem;
+      background: linear-gradient(135deg, rgba(240, 168, 48, 0.6), rgba(255, 255, 255, 0));
+      z-index: -1;
+    }
+
     .profile-card img {
       width: 120px;
-      margin: 0 auto 1rem;
+      margin: 0 auto 0.85rem;
       display: block;
     }
 
     .profile-card h1 {
-      font-size: 1.25rem;
-      margin: 0 0 0.75rem;
+      font-size: 1.2rem;
+      margin: 0 0 0.5rem;
     }
 
     .profile-card p {
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 1.1rem;
       color: #4b5a66;
       max-width: 30ch;
-      line-height: 1.5;
+      line-height: 1.45;
+      font-size: 0.95rem;
     }
 
     .social-links {
@@ -75,8 +87,8 @@
     }
 
     .social-links a {
-      width: 44px;
-      height: 44px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
@@ -91,19 +103,6 @@
       transform: translateY(-2px);
     }
 
-    .contact-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: var(--card);
-      background: var(--ink);
-      padding: 0.85rem 1.5rem;
-      border-radius: 999px;
-      font-weight: 600;
-      width: 100%;
-    }
-
     .link-stack {
       display: flex;
       flex-direction: column;
@@ -113,24 +112,95 @@
       border-radius: 1.5rem;
     }
 
-    .link-stack a {
+    .invite-btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
+      gap: 0.4rem;
       background: var(--brand);
       color: var(--ink);
-      font-weight: 600;
+      font-weight: 700;
       border-radius: 999px;
-      padding: 0.95rem 1.5rem;
+      padding: 0.65rem 1.2rem;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
+
+    .invite-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 26px rgba(0, 0, 0, 0.25);
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--card);
+      border-radius: 1.25rem;
+      padding: 1rem 1.25rem;
       text-decoration: none;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .link-stack a:hover {
+    .link-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .link-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--card);
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .link-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      text-align: left;
+    }
+
+    .link-title {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .link-subtitle {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .link-arrow {
+      margin-left: auto;
+      color: var(--brand);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .social-links a,
+      .invite-btn,
+      .link-card {
+        transition: none;
+      }
+
+      .social-links a:hover,
+      .invite-btn:hover,
+      .link-card:hover {
+        transform: none;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
     }
   </style>
 <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16514772817"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-16514772817'); </script>
@@ -140,20 +210,73 @@
     <section class="profile-card">
       <img src="images/logo.svg" alt="Landmark Church logo" loading="eager">
       <h1>Welcome Home!</h1>
-      <p>We're glad you're here. Tap a link below to get connected. Have a wonderful day.</p>
-      <div class="social-links" aria-label="Social media">
+      <p>We're glad you're here. Tap a link below to get connected. Have a blessed day.</p>
+      <div class="social-links" aria-label="Social media and contact">
         <a href="https://facebook.com/landmarklafayette" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
         <a href="https://instagram.com/landmarkchurch" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
         <a href="https://podcasts.apple.com/us/podcast/landmark-sermons/id1768287177" target="_blank" rel="noopener" aria-label="Apple Podcasts"><i class="fas fa-podcast" aria-hidden="true"></i></a>
+        <a href="https://landmarkchurch.churchcenter.com/people/forms/13671" data-open-in-church-center-modal="true" aria-label="Contact Landmark"><i class="fas fa-envelope" aria-hidden="true"></i></a>
       </div>
-      <a class="contact-btn" href="https://landmarkchurch.churchcenter.com/people/forms/13671" data-open-in-church-center-modal="true">Contact Landmark</a>
     </section>
 
     <section class="link-stack" aria-label="Landmark quick links">
-      <a href="https://landmarkchurch.churchcenter.com/people/forms/13671" data-open-in-church-center-modal="true">Fill Out a Connect Card</a>
-      <a href="https://landmarkchurch.churchcenter.com/setup" target="_blank" rel="noopener">Download Our App</a>
-      <a href="https://landmarkchurch.churchcenter.com/giving" data-open-in-church-center-modal="true">Make a Donation</a>
-      <a href="https://landmarkchurch.churchcenter.com/registrations" target="_blank" rel="noopener">Register for Event</a>
+      <a class="invite-btn" href="sms:?&body=I%E2%80%99m%20watching%20Landmark%20Church%20online%20and%20would%20love%20for%20you%20to%20join%3A%20https://landmarkchurch.churchcenter.com/channels/5760">Invite someone to tune in now <span aria-hidden="true">→</span></a>
+      <a class="link-card" href="https://landmarkchurch.churchcenter.com/people/forms/13671" data-open-in-church-center-modal="true">
+        <span class="link-icon" aria-hidden="true"><i class="fas fa-id-card"></i></span>
+        <span class="link-text">
+          <span class="link-title">New? Fill Connect Card</span>
+          <span class="link-subtitle">Share your info so we can follow up.</span>
+        </span>
+        <span class="link-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="link-card" href="https://landmarkchurch.churchcenter.com/setup" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true"><i class="fas fa-mobile-screen-button"></i></span>
+        <span class="link-text">
+          <span class="link-title">Download Our App</span>
+          <span class="link-subtitle">Watch live and on-demand, see events, give, register, and join groups.</span>
+        </span>
+        <span class="link-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="link-card" href="https://landmarkchurch.churchcenter.com/giving" data-open-in-church-center-modal="true">
+        <span class="link-icon" aria-hidden="true"><i class="fas fa-hand-holding-heart"></i></span>
+        <span class="link-text">
+          <span class="link-title">Make a Donation</span>
+          <span class="link-subtitle">Support the work and mission of Landmark with tithes and offerings.</span>
+        </span>
+        <span class="link-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="link-card" href="https://landmarkchurch.churchcenter.com/registrations/events" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true"><i class="fas fa-heartbeat"></i></span>
+        <span class="link-text">
+          <span class="link-title">Register: CPR Training</span>
+          <span class="link-subtitle">Register to attend the CPR/AED training to become fully certified.</span>
+        </span>
+        <span class="link-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="link-card" href="https://landmarkchurch.churchcenter.com/registrations/events/3492615" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true"><i class="fas fa-calendar-days"></i></span>
+        <span class="link-text">
+          <span class="link-title">Signup: Women's Night Out</span>
+          <span class="link-subtitle">Sign up for free to save your seat.</span>
+        </span>
+        <span class="link-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="link-card" href="https://landmarkchurch.churchcenter.com/groups/unique/landmark-leadership-institute" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true"><i class="fas fa-users-cog"></i></span>
+        <span class="link-text">
+          <span class="link-title">Join: Men's Leadership</span>
+          <span class="link-subtitle">Free and open—grow with the Landmark Leadership Institute.</span>
+        </span>
+        <span class="link-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="link-card" href="https://landmarkchurch.churchcenter.com/calendar?view=list" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true"><i class="fas fa-stream"></i></span>
+        <span class="link-text">
+          <span class="link-title">View Event Calendar</span>
+          <span class="link-subtitle">See everything happening at Landmark.</span>
+        </span>
+        <span class="link-arrow" aria-hidden="true">→</span>
+      </a>
     </section>
   </main>
 </body>
