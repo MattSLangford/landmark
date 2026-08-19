@@ -1,19 +1,57 @@
-# Repository Guidelines
+# Landmark Church Website
 
-## Project Structure & Assets
-Bootstrap with `npm create vite@latest landmark-website -- --template react-ts`; all authored code stays in `src/`. Keep routes in `src/pages`, shared UI in `src/components`, and evergreen copy (mission, ministries, service times) in `src/content`. Put configuration helpers and Planning Center link builders in `src/lib`. Static files ship from `public/`, while the root `images/` folder currently stores the official logo plus portraits of Senior Pastor Rick and Lead Pastor Matt—compress them before moving to `public/images/`.
+This repository contains the static website for Landmark Church in Lafayette, Louisiana. It is plain HTML and CSS with small inline JavaScript enhancements; there is currently no package manager, application framework, build step, or automated test suite.
 
-## Build, Test, and Development Workflow
-Install deps via `npm install`, run `npm run dev` for the Vite dev server, and `npm run build` to emit the production bundle to `dist/`. `npm run preview` mimics Netlify output; run it before `netlify deploy --build` to verify redirects and forms. Guard quality with `npm run lint` (ESLint + Prettier) and keep fast feedback loops alive with `npm run test` or `npm run test -- --watch`.
+## Project Structure
 
-## Content, Style & Naming
-Use two-space indentation, TypeScript strict mode, and PascalCase filenames for components (`PrayerForm.tsx`). Helpers and hooks stay camelCase (`planningLinks.ts`, `useGivingForm.ts`). Define theme tokens under `src/styles/tokens.css` with the `--landmark-` prefix, and rely on semantic HTML, visible focus states, and ≥4.5:1 contrast. Planning Center embeds must include descriptive headings, aria-labels (“Give through Planning Center”), and copy that highlights service times, directions, ministries, and Next Steps in short sections.
+- `index.html` — public homepage with visit information, ministries, leadership, and Church Center links.
+- `giving.html` — giving information and links to Church Center Giving.
+- `tap.html` — mobile-friendly public quick-links page used by the `/hello` and `/hi` redirects.
+- `hello.html` — separate welcome and next-steps page; it is not served by the current `/hello` redirect.
+- `portal.html` — internal staff link hub for Planning Center and other church resources. It contains its own embedded styles.
+- `404.html` — static not-found page.
+- `styles.css` — shared styles for the main public pages.
+- `images/` — church logo, homepage hero image, and pastor portraits.
+- `_redirects` — host-level redirects and giving aliases.
+- `robots.txt`, `site.webmanifest`, favicon files, and verification files — search, browser, and site-ownership metadata.
 
-## Testing Expectations
-Vitest + Testing Library mirror the source tree (`src/components/Hero.tsx` ↔ `src/components/__tests__/Hero.test.tsx`). Mock Planning Center requests with MSW handlers in `src/tests/mocks/`, and add axe checks for any UI touching accessibility-critical flows. Maintain ≥80% statement coverage using `npm run test -- --coverage` before merging.
+## Local Preview
 
-## Commit & Pull Request Process
-Keep commit subjects imperative and under 72 characters (“Add Next Steps CTA”) and mention any Planning Center URLs or Netlify settings touched in the body. PRs must outline the change, attach desktop/mobile screenshots for UI work, and list the commands executed. Keep diffs small (<400 LOC) and spin out follow-up issues when scope grows.
+No installation or build is required. From the repository root, run:
 
-## Integrations & Deployment
-All contact, giving, and registration links come from Planning Center; never store attendee data here. Document any required extra keys in `.env.example`, but keep secrets local. Netlify deploys from `dist/`; verify forms, redirects, and Lighthouse scores (target 90+) before announcing a release.
+```bash
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000/`. Python's local server does not process `_redirects`; test those rules on a compatible static host or deployed preview.
+
+## Editing Conventions
+
+- Keep the site dependency-light. Do not introduce a framework, package manager, or build system unless the user explicitly approves a migration.
+- Preserve the existing responsive layout, semantic HTML, skip links, keyboard focus states, descriptive alternative text, and accessible labels.
+- Reuse the existing CSS variables and component classes in `styles.css` before adding new patterns.
+- Shared navigation and footer markup is duplicated across pages. When changing either, check every public page for consistency.
+- Keep page metadata accurate: title, description, canonical URL, Open Graph fields, and any `noindex` directives.
+- Compress new production images and provide meaningful `alt` text.
+
+## Integrations and Data
+
+- Planning Center and Church Center are the system of record for contact forms, giving, registrations, events, groups, profiles, and livestream content.
+- Use Church Center links or its modal attributes for interactive flows; do not collect or store attendee data in this repository.
+- Preserve `target="_blank"` links with `rel="noopener"`.
+- Google tag scripts and site-verification files are production integrations. Do not remove or change their IDs without explicit direction.
+- `portal.html` is labeled internal but is a static page with no authentication in this repository. Do not add sensitive information or secrets to it.
+
+## Verification
+
+There are no automated checks. After a change:
+
+1. Preview the affected pages in a browser at desktop and mobile widths.
+2. Check navigation, focus behavior, images, and internal links.
+3. Confirm Church Center links and modal-trigger attributes still point to the intended destinations.
+4. If redirects changed, verify them on a compatible hosted preview because the local Python server ignores `_redirects`.
+5. For content shared across pages, search the repository for stale copies before reporting completion.
+
+## Deployment
+
+The checked-in files are deployable directly as a static site. The repository contains Netlify-style `_redirects`, but it does not currently include a documented deployment command or build configuration. Do not claim a deployment succeeded without verifying the live site independently.

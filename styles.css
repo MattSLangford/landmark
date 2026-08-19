@@ -214,14 +214,102 @@ img {
   margin-top: 2rem;
 }
 
+.giving-online-callout > div {
+  flex: 1 1 440px;
+}
+
 .announcement-callout h2,
 .giving-online-callout h2 {
   margin: 0.25rem 0;
 }
 
+.giving-online-callout p:not(.eyebrow) {
+  margin: 0.35rem 0 0;
+}
+
 .announcement-callout .btn,
 .giving-online-callout .btn {
   margin-left: auto;
+}
+
+.giving-impact {
+  margin: 2rem 0 0;
+  color: var(--muted);
+}
+
+.giving-section-heading {
+  margin-top: 3rem;
+}
+
+.giving-section-heading h2 {
+  margin: 0.35rem 0 0;
+}
+
+.giving-section-heading + .giving-options {
+  margin-top: 1.25rem;
+}
+
+.giving-options.giving-options--four {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.giving-faq {
+  margin-top: 3.25rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.giving-faq__heading h2 {
+  margin: 0.35rem 0 0;
+}
+
+.giving-faq__list {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.giving-faq details {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--card);
+  box-shadow: 0 12px 24px rgba(16, 30, 45, 0.03);
+}
+
+.giving-faq summary {
+  padding: 1rem 1.15rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.giving-faq summary::marker {
+  color: var(--brand-dark);
+}
+
+.giving-faq details[open] summary {
+  border-bottom: 1px solid var(--line);
+}
+
+.giving-faq details p {
+  margin: 0;
+  padding: 1rem 1.15rem 1.15rem;
+  color: var(--muted);
+}
+
+.giving-faq details .inline-link {
+  color: var(--ink);
+}
+
+@media (max-width: 620px) {
+  .giving-online-callout .btn {
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .giving-options.giving-options--four {
+    grid-template-columns: 1fr;
+  }
 }
 
 .hero-text h1 {
@@ -617,28 +705,4 @@ main {
 
 .giving-employer h3 {
   margin-top: 0;
-}
-.giving-online-callout {
-  margin-top: 2rem;
-  padding: 1.75rem;
-  border: 1px solid var(--line);
-  border-radius: 1.25rem;
-  background: linear-gradient(135deg, rgba(240, 168, 48, 0.08), rgba(255, 255, 255, 0.7));
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.giving-online-callout h2 {
-  margin: 0;
-}
-
-.giving-online-callout p {
-  margin: 0.35rem 0 0;
-}
-
-.giving-online-callout .btn {
-  margin-left: auto;
 }
